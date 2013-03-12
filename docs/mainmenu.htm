@@ -1,0 +1,112 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Main Menu</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  body {
+    background-color:#f7f7f7; 
+    font-family:Arial,Helvetica,sans-serif; font-size:11pt;
+  }
+  textarea, pre, code { font-size:0.9em; }
+  pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier; }
+  pre { line-height:1.2em; }
+  pre code, code code, pre pre { font-size:100%; }
+  h1, h2, h3, h4, h5, h6 { margin-top:1.0em; margin-bottom:0.6em; }
+  h1, h2, h3, h6 { font-weight:normal; }
+  h4, h5 { font-weight:bold; }
+  h1 code, h2 code, h3 code, h4 code { font-size:1em; }
+  h1 { font-size:1.8em; }
+  h2 { font-size:1.44em; }
+  h3 { font-size:1.22em; }
+  h4 { font-size:1.07em; }
+  h5 { font-size:1.0em; }
+  h6 { font-size:1.0em; }
+  .pagegroup { margin-top:8px; margin-bottom:2px; }
+  .pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+  #wikitext { margin-top:12px; line-height:1.33em; }
+  #wikiedit form { margin:0px; width:100%; }
+  #wikiedit textarea { width:100%; }
+  .wikimessage { margin-top:4px; margin-bottom:4px; font-style:italic; }
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  .frame {
+    border:1px solid #cccccc; padding:4px; background-color:#f9f9f9;
+  }
+  .lfloat { float:left; margin-right:0.5em; }
+  .rfloat { float:right; margin-left:0.5em; }
+  a.varlink { text-decoration:none; }
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<div id='wikititle'><h1 class='pagetitle'>Main Menu</h1></div>
+<div id='wikitext'>
+<h2><ins>F</ins>ile Menu</h2>
+<p>The file menu contains most of the file input/output related functions of the Behaviour Tool.
+</p>
+<p><img src='images/file_menu.png' />
+</p>
+<div class='vspace'></div><ul><li><ins>N</ins>ew Behaviour (Ctrl+N)
+<ul><li>Clears out the information from the current behaviour and starts a new one.  The user will always be prompted to save the current behaviour, as once you start a new behaviour, you can't retrieve the changes made to the old behaviour unless it was saved.
+</li></ul></li><li><ins>O</ins>pen Behaviour... (Ctrl+O)
+<ul><li>Opens a generated behaviour file for editing in Behaviour Tool.  Behaviour Tool gets its information about the behaviour by examining its opening comment block.  For this reason, changes that an author makes to a behaviour manually, after it has been generated, is not maintained by the Behaviour Tool.  Authors should note their changes before opening a behaviour in the tool, as it is easy to accidentally save a newly generated behaviour over the old, manually edited one.  Like starting a new behaviour, the user will always be prompted to save the current behaviour before opening an existing behaviour.
+</li></ul></li><li><ins>S</ins>ave Behaviour (Ctrl+S)
+<ul><li>Saves a copy of the current behaviour.  Upon activating this menu item, the current working directory (that is, the last directory you opened or saved a file in, or the directory containing the Behaviour Tool executable) is searched for previously generated script files matching the current behaviour name.  If those files are found, then the tool assumes this directory is the correct directory, and saves the two script files to this directory.  If the files are not found, a dialog box will pop up asking the user to select the directory they would like to save the script files in.
+</li></ul></li><li>Save Behaviour <ins>I</ins>n... (Alt+S)
+<ul><li>Saves a copy of the current behaviour in a specific directory. Unlike the Save Behaviour menu item, with Save Behaviour In, the user is always prompted to select the directory they would like to save the script files in.
+</li></ul></li><li>E<ins>x</ins>it
+<ul><li>Exits the behaviour tool.  The user will always be prompted to save the current behaviour, as exiting without saving changes will lose the changes made to the current behaviour.
+</li></ul></li></ul><div class='vspace'></div><h2><ins>E</ins>dit Menu</h2>
+<p>The edit menu contains methods useful for entering and manipulating text in the various editable fields on the interface.
+</p>
+<p><img src='images/edit_menu.png' />
+</p>
+<div class='vspace'></div><ul><li><ins>U</ins>ndo (Ctrl+Z)
+<ul><li>Returns the field to the previous state.  For example, if you accidentally delete the text in a text field, selecting this menu item (or pressing the keyboard shortcut) will undo the deletion, returning the text to its previous state.
+</li></ul></li><li><ins>R</ins>edo (Ctrl+Y)
+<ul><li>Returns the field to the state previous to the last undo action.  Extending the previous example, if you find that you did indeed want to delete the text in that text field, selecting thie menu item (or pressing the keyboard shortcut) will redo the deletion, removing the text from the field.
+</li></ul></li><li>Cu<ins>t</ins> (Ctrl+X)
+<ul><li>Copies the selected text to the clipboard and removes it from the text field.
+</li></ul></li><li><ins>C</ins>opy (Ctrl+C)
+<ul><li>Copies the selected text to the clipboard without removing it from the text field.
+</li></ul></li><li><ins>P</ins>aste (Ctrl+V)
+<ul><li>Copies the text in the clipboard to the text field at the current cursor position.  If other text is selected, it will remove the selected text and replace it with the text in the clipboard.
+</li></ul></li></ul><div class='vspace'></div><h2><ins>T</ins>ools Menu</h2>
+<p>The tools menu contains functions that do not need to be used often, but are still very useful.
+</p>
+<p><img src='images/tools_menu.png' />
+</p>
+<div class='vspace'></div><ul><li><ins>O</ins>ptions...
+<ul><li>Selecting this menu item brings up the options dialog.  In its current state, the only option is to store the location of the <code>util_verbs.nss</code> file.  Doing this will load up the file when the tool starts up so that you don't have to re-open it every time the program starts up.
+</li></ul></li></ul><div class='vspace'></div><h2><ins>H</ins>elp Menu</h2>
+<p>The help menu contains funtions to help the user use the tool.
+</p>
+<p><img src='images/help_menu.png' />
+</p>
+<div class='vspace'></div><ul><li><ins>H</ins>elp Contents (F1)
+<ul><li>Launches this, the help file! The help file can also be loaded up on its own by running the <code>behaviour_tool.chm</code> file in the Behaviour Tool directory.
+</li></ul></li><li><ins>A</ins>bout Behaviour Tool
+<ul><li>Provides some information about the tool and its developer.  Further information can also be found on the <a class='wikilink' href='http://www.cs.ualberta.ca/~dthue/pswiki/pmwiki.php?n=BehaviourTool.About'>about</a> page of this help file.
+</li></ul></li></ul>
+</div>
+</body>
+</html>

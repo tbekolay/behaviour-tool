@@ -1,0 +1,28 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=BehaviourTool.chm
+Contents file=BehaviourTool.hhc
+Default topic=introduction.htm
+Display compile progress=No
+Index file=BehaviourTool.hhk
+Language=0x409 English (United States)
+Title=Behaviour Tool Help
+
+
+[FILES]
+about.htm
+behaviour_code_details.htm
+behaviour_tab.htm
+behaviours.htm
+code_generation_templates.htm
+development.htm
+interface_details.htm
+introduction.htm
+mainmenu.htm
+tutorials.htm
+using_behaviours.htm
+verb_tab.htm
+api_documentation.htm
+
+[INFOTYPES]
+

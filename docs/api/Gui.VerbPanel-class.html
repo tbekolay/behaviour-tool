@@ -1,0 +1,2238 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Gui.VerbPanel</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Behaviour Tool</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="Gui-module.html">Module&nbsp;Gui</a> ::
+        Class&nbsp;VerbPanel
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Gui.VerbPanel-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class VerbPanel</h1><span class="codelink"><a href="Gui-pysrc.html#VerbPanel">source&nbsp;code</a></span><br /><br />
+<pre class="base-tree">
+     object --+                
+              |                
+wx._core.Object --+            
+                  |            
+wx._core.EvtHandler --+        
+                      |        
+        wx._core.Window --+    
+                          |    
+          wx._windows.Panel --+
+                              |
+                             <strong class="uidshort">VerbPanel</strong>
+</pre>
+
+<hr />
+This panel contains widgets to view and modify a verb.<br /><br />
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">verb</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Sets up the instance variables, widgets, and widget settings.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__load"></a><span class="summary-sig-name">__load</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Load information from the model to populate our widgets.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.__load">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#RemoveFollowers" class="summary-sig-name">RemoveFollowers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">verb</span>)</span><br />
+      If this verb has the passed verb as a follower, delete it and the 
+      associated widgets.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.RemoveFollowers">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#ChangeContextName" class="summary-sig-name">ChangeContextName</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Change the context name of the verb and update the UI.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.ChangeContextName">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#ChangeFollower" class="summary-sig-name">ChangeFollower</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">follower</span>)</span><br />
+      Change the follower-ness of the verb and update the UI.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.ChangeFollower">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#ChangeTerminal" class="summary-sig-name">ChangeTerminal</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">terminal</span>)</span><br />
+      Change the terminal-ness of the verb and update the UI.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.ChangeTerminal">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#AddPrecondToPanel" class="summary-sig-name">AddPrecondToPanel</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">precond</span>)</span><br />
+      Add widgets to display the precondition on the panel.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddPrecondToPanel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#AddFollowerToPanel" class="summary-sig-name">AddFollowerToPanel</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">follower</span>)</span><br />
+      Add widgets to display the follower on the panel.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddFollowerToPanel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#AddActualVerbWidgets" class="summary-sig-name">AddActualVerbWidgets</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">actual_verb</span>)</span><br />
+      Add the widgets associated with the ActualVerb.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddActualVerbWidgets">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ClearActualVerbWidgets"></a><span class="summary-sig-name">ClearActualVerbWidgets</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Clear the ActualVerb widgets from the previous selection.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.ClearActualVerbWidgets">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#AddVDArgWidgets" class="summary-sig-name">AddVDArgWidgets</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ix</span>,
+        <span class="summary-sig-arg">vdarg</span>)</span><br />
+      Add the widgets associated with a VerbData argument.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddVDArgWidgets">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#AddVArgWidgets" class="summary-sig-name">AddVArgWidgets</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ix</span>,
+        <span class="summary-sig-arg">varg</span>)</span><br />
+      Add the widgets associated with a Verb argument.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddVArgWidgets">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#ChangeActualVerb" class="summary-sig-name">ChangeActualVerb</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">actual_name</span>)</span><br />
+      Set the actual verb based on the passed text.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.ChangeActualVerb">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="UpdateState"></a><span class="summary-sig-name">UpdateState</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      The UpdateState for the VerbPanel updates the Choices and 
+      Comboboxes with the current lists in the model.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.UpdateState">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Panel</code></b>:
+      <code>Create</code>,
+      <code>SetFocusIgnoringChildren</code>,
+      <code>__repr__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceptsFocus</code>,
+      <code>AcceptsFocusFromKeyboard</code>,
+      <code>AddChild</code>,
+      <code>AdjustForLayoutDirection</code>,
+      <code>AssociateHandle</code>,
+      <code>CacheBestSize</code>,
+      <code>CanSetTransparent</code>,
+      <code>CaptureMouse</code>,
+      <code>Center</code>,
+      <code>CenterOnParent</code>,
+      <code>Centre</code>,
+      <code>CentreOnParent</code>,
+      <code>ClearBackground</code>,
+      <code>ClientToScreen</code>,
+      <code>ClientToScreenXY</code>,
+      <code>Close</code>,
+      <code>ConvertDialogPointToPixels</code>,
+      <code>ConvertDialogSizeToPixels</code>,
+      <code>ConvertPixelPointToDialog</code>,
+      <code>ConvertPixelSizeToDialog</code>,
+      <code>DLG_PNT</code>,
+      <code>DLG_SZE</code>,
+      <code>Destroy</code>,
+      <code>DestroyChildren</code>,
+      <code>Disable</code>,
+      <code>DissociateHandle</code>,
+      <code>DragAcceptFiles</code>,
+      <code>Enable</code>,
+      <code>FindWindowById</code>,
+      <code>FindWindowByName</code>,
+      <code>Fit</code>,
+      <code>FitInside</code>,
+      <code>Freeze</code>,
+      <code>GetAcceleratorTable</code>,
+      <code>GetAdjustedBestSize</code>,
+      <code>GetAutoLayout</code>,
+      <code>GetBackgroundColour</code>,
+      <code>GetBackgroundStyle</code>,
+      <code>GetBestFittingSize</code>,
+      <code>GetBestSize</code>,
+      <code>GetBestSizeTuple</code>,
+      <code>GetBestVirtualSize</code>,
+      <code>GetBorder</code>,
+      <code>GetCaret</code>,
+      <code>GetCharHeight</code>,
+      <code>GetCharWidth</code>,
+      <code>GetChildren</code>,
+      <code>GetClientAreaOrigin</code>,
+      <code>GetClientRect</code>,
+      <code>GetClientSize</code>,
+      <code>GetClientSizeTuple</code>,
+      <code>GetConstraints</code>,
+      <code>GetContainingSizer</code>,
+      <code>GetCursor</code>,
+      <code>GetDefaultAttributes</code>,
+      <code>GetDropTarget</code>,
+      <code>GetEffectiveMinSize</code>,
+      <code>GetEventHandler</code>,
+      <code>GetExtraStyle</code>,
+      <code>GetFont</code>,
+      <code>GetForegroundColour</code>,
+      <code>GetFullTextExtent</code>,
+      <code>GetGrandParent</code>,
+      <code>GetHandle</code>,
+      <code>GetHelpText</code>,
+      <code>GetHelpTextAtPoint</code>,
+      <code>GetId</code>,
+      <code>GetLabel</code>,
+      <code>GetLayoutDirection</code>,
+      <code>GetMaxHeight</code>,
+      <code>GetMaxSize</code>,
+      <code>GetMaxWidth</code>,
+      <code>GetMinHeight</code>,
+      <code>GetMinSize</code>,
+      <code>GetMinWidth</code>,
+      <code>GetName</code>,
+      <code>GetParent</code>,
+      <code>GetPosition</code>,
+      <code>GetPositionTuple</code>,
+      <code>GetRect</code>,
+      <code>GetScreenPosition</code>,
+      <code>GetScreenPositionTuple</code>,
+      <code>GetScreenRect</code>,
+      <code>GetScrollPos</code>,
+      <code>GetScrollRange</code>,
+      <code>GetScrollThumb</code>,
+      <code>GetSize</code>,
+      <code>GetSizeTuple</code>,
+      <code>GetSizer</code>,
+      <code>GetTextExtent</code>,
+      <code>GetThemeEnabled</code>,
+      <code>GetToolTip</code>,
+      <code>GetTopLevelParent</code>,
+      <code>GetUpdateClientRect</code>,
+      <code>GetUpdateRegion</code>,
+      <code>GetValidator</code>,
+      <code>GetVirtualSize</code>,
+      <code>GetVirtualSizeTuple</code>,
+      <code>GetWindowBorderSize</code>,
+      <code>GetWindowStyle</code>,
+      <code>GetWindowStyleFlag</code>,
+      <code>GetWindowVariant</code>,
+      <code>HasCapture</code>,
+      <code>HasFlag</code>,
+      <code>HasMultiplePages</code>,
+      <code>HasScrollbar</code>,
+      <code>HasTransparentBackground</code>,
+      <code>Hide</code>,
+      <code>HitTest</code>,
+      <code>HitTestXY</code>,
+      <code>InheritAttributes</code>,
+      <code>InheritsBackgroundColour</code>,
+      <code>InitDialog</code>,
+      <code>InvalidateBestSize</code>,
+      <code>IsBeingDeleted</code>,
+      <code>IsDoubleBuffered</code>,
+      <code>IsEnabled</code>,
+      <code>IsExposed</code>,
+      <code>IsExposedPoint</code>,
+      <code>IsExposedRect</code>,
+      <code>IsFrozen</code>,
+      <code>IsRetained</code>,
+      <code>IsShown</code>,
+      <code>IsShownOnScreen</code>,
+      <code>IsTopLevel</code>,
+      <code>Layout</code>,
+      <code>LineDown</code>,
+      <code>LineUp</code>,
+      <code>Lower</code>,
+      <code>MakeModal</code>,
+      <code>Move</code>,
+      <code>MoveAfterInTabOrder</code>,
+      <code>MoveBeforeInTabOrder</code>,
+      <code>MoveXY</code>,
+      <code>Navigate</code>,
+      <code>OnPaint</code>,
+      <code>PageDown</code>,
+      <code>PageUp</code>,
+      <code>PopEventHandler</code>,
+      <code>PopupMenu</code>,
+      <code>PopupMenuXY</code>,
+      <code>PostCreate</code>,
+      <code>PrepareDC</code>,
+      <code>PushEventHandler</code>,
+      <code>Raise</code>,
+      <code>Refresh</code>,
+      <code>RefreshRect</code>,
+      <code>RegisterHotKey</code>,
+      <code>ReleaseMouse</code>,
+      <code>RemoveChild</code>,
+      <code>RemoveEventHandler</code>,
+      <code>Reparent</code>,
+      <code>ScreenToClient</code>,
+      <code>ScreenToClientXY</code>,
+      <code>ScrollLines</code>,
+      <code>ScrollPages</code>,
+      <code>ScrollWindow</code>,
+      <code>SendSizeEvent</code>,
+      <code>SetAcceleratorTable</code>,
+      <code>SetAutoLayout</code>,
+      <code>SetBackgroundColour</code>,
+      <code>SetBackgroundStyle</code>,
+      <code>SetBestFittingSize</code>,
+      <code>SetCaret</code>,
+      <code>SetClientRect</code>,
+      <code>SetClientSize</code>,
+      <code>SetClientSizeWH</code>,
+      <code>SetConstraints</code>,
+      <code>SetContainingSizer</code>,
+      <code>SetCursor</code>,
+      <code>SetDimensions</code>,
+      <code>SetDoubleBuffered</code>,
+      <code>SetDropTarget</code>,
+      <code>SetEventHandler</code>,
+      <code>SetExtraStyle</code>,
+      <code>SetFocus</code>,
+      <code>SetFocusFromKbd</code>,
+      <code>SetFont</code>,
+      <code>SetForegroundColour</code>,
+      <code>SetHelpText</code>,
+      <code>SetHelpTextForId</code>,
+      <code>SetId</code>,
+      <code>SetInitialSize</code>,
+      <code>SetLabel</code>,
+      <code>SetLayoutDirection</code>,
+      <code>SetMaxSize</code>,
+      <code>SetMinSize</code>,
+      <code>SetName</code>,
+      <code>SetOwnBackgroundColour</code>,
+      <code>SetOwnFont</code>,
+      <code>SetOwnForegroundColour</code>,
+      <code>SetPosition</code>,
+      <code>SetRect</code>,
+      <code>SetScrollPos</code>,
+      <code>SetScrollbar</code>,
+      <code>SetSize</code>,
+      <code>SetSizeHints</code>,
+      <code>SetSizeHintsSz</code>,
+      <code>SetSizeWH</code>,
+      <code>SetSizer</code>,
+      <code>SetSizerAndFit</code>,
+      <code>SetThemeEnabled</code>,
+      <code>SetToolTip</code>,
+      <code>SetToolTipString</code>,
+      <code>SetTransparent</code>,
+      <code>SetValidator</code>,
+      <code>SetVirtualSize</code>,
+      <code>SetVirtualSizeHints</code>,
+      <code>SetVirtualSizeHintsSz</code>,
+      <code>SetVirtualSizeWH</code>,
+      <code>SetWindowStyle</code>,
+      <code>SetWindowStyleFlag</code>,
+      <code>SetWindowVariant</code>,
+      <code>ShouldInheritColours</code>,
+      <code>Show</code>,
+      <code>Thaw</code>,
+      <code>ToggleWindowStyle</code>,
+      <code>TransferDataFromWindow</code>,
+      <code>TransferDataToWindow</code>,
+      <code>UnregisterHotKey</code>,
+      <code>Update</code>,
+      <code>UpdateWindowUI</code>,
+      <code>UseBgCol</code>,
+      <code>Validate</code>,
+      <code>WarpPointer</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>AddPendingEvent</code>,
+      <code>Bind</code>,
+      <code>Connect</code>,
+      <code>Disconnect</code>,
+      <code>GetEvtHandlerEnabled</code>,
+      <code>GetNextHandler</code>,
+      <code>GetPreviousHandler</code>,
+      <code>ProcessEvent</code>,
+      <code>ProcessPendingEvents</code>,
+      <code>SetEvtHandlerEnabled</code>,
+      <code>SetNextHandler</code>,
+      <code>SetPreviousHandler</code>,
+      <code>Unbind</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b> (private):
+      <code>_setOORInfo</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>GetClassName</code>,
+      <code>IsSameAs</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__setattr__</code>,
+      <code>__str__</code>
+      </p>
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Event handlers</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnDeleteVerb" class="summary-sig-name">OnDeleteVerb</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Delete the current verb, and add it to the verb trash.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnDeleteVerb">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnContextNameFocus" class="summary-sig-name">OnContextNameFocus</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Change the context name to what's currently in the context name 
+      TextCtrl.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnContextNameFocus">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnFollowerRadio" class="summary-sig-name">OnFollowerRadio</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Change the follower-ness of the verb.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnFollowerRadio">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnTerminalCheck" class="summary-sig-name">OnTerminalCheck</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Change the terminal-ness of the verb.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnTerminalCheck">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnAddPrecond" class="summary-sig-name">OnAddPrecond</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Create a precondition then add it to the panel.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnAddPrecond">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnChangePrecond" class="summary-sig-name">OnChangePrecond</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Change a precondition.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnChangePrecond">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnDelPrecond" class="summary-sig-name">OnDelPrecond</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Remove a precondition.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnDelPrecond">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnTrashPrecond" class="summary-sig-name">OnTrashPrecond</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Show a popup menu with the previously deleted preconditions.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnTrashPrecond">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnRestorePrecond" class="summary-sig-name">OnRestorePrecond</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Restore a previous deleted precondition.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnRestorePrecond">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnAddFollower" class="summary-sig-name">OnAddFollower</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Add a new follower to the verb, then add the widgets to the 
+      panel.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnAddFollower">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnChangeFollower" class="summary-sig-name">OnChangeFollower</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Change a follower.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnChangeFollower">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnDelFollower" class="summary-sig-name">OnDelFollower</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Remove a follower.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnDelFollower">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnTrashFollower" class="summary-sig-name">OnTrashFollower</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Show a popup menu with the previously deleted followers.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnTrashFollower">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnRestoreFollower" class="summary-sig-name">OnRestoreFollower</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Restore a deleted follower.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnRestoreFollower">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnLoadVerbs" class="summary-sig-name">OnLoadVerbs</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Open a file dialog to load the util_verbs.nss file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnLoadVerbs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnActualVerbFocus" class="summary-sig-name">OnActualVerbFocus</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Set the actual verb based on the entered text.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnActualVerbFocus">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnActualVerbSelect" class="summary-sig-name">OnActualVerbSelect</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Set the actual verb based on the selection, then add the 
+      associated widgets.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnActualVerbSelect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnSetVDarg" class="summary-sig-name">OnSetVDarg</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Set a VerbData argument based on an entered or selected value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnSetVDarg">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Gui.VerbPanel-class.html#OnSetVarg" class="summary-sig-name">OnSetVarg</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Set a verb argument based on an entered or selected value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnSetVarg">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Panel</code></b>:
+      <code>GetClassDefaultAttributes</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>FindFocus</code>,
+      <code>GetCapture</code>,
+      <code>NewControlId</code>,
+      <code>NextControlId</code>,
+      <code>PrevControlId</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="verb"></a><span class="summary-name">verb</span><br />
+      The verb this panel is displaying.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of strings</span>
+    </td><td class="summary">
+        <a name="precond_trash"></a><span class="summary-name">precond_trash</span><br />
+      Preconditions removed from the verb are put in this list for later
+      retrieval.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of ints</span>
+    </td><td class="summary">
+        <a name="follower_trash"></a><span class="summary-name">follower_trash</span><br />
+      Followers removed from the verb are put in this list for later 
+      retrieval.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of wx.ItemContainer objects</span>
+    </td><td class="summary">
+        <a name="object_cbs"></a><span class="summary-name">object_cbs</span><br />
+      Keeps track of the ItemContainer objects that contain lists of 
+      NWVariables of type 'object'.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of wx.ItemContainer objects</span>
+    </td><td class="summary">
+        <a name="string_cbs"></a><span class="summary-name">string_cbs</span><br />
+      Keeps track of the ItemContainer objects that contain lists of 
+      NWVariables of type 'string'.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of wx.ItemContainer objects</span>
+    </td><td class="summary">
+        <a name="int_cbs"></a><span class="summary-name">int_cbs</span><br />
+      Keeps track of the ItemContainer objects that contain lists of 
+      NWVariables of type 'int'.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of wx.ItemContainer objects</span>
+    </td><td class="summary">
+        <a name="float_cbs"></a><span class="summary-name">float_cbs</span><br />
+      Keeps track of the ItemContainer objects that contain lists of 
+      NWVariables of type 'float'.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of wx.ItemContainer objects</span>
+    </td><td class="summary">
+        <a name="follow_choice"></a><span class="summary-name">follow_choice</span><br />
+      Keeps track of the ItemContainer objects that contain lists of 
+      verb names.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.TextCtrl</span>
+    </td><td class="summary">
+        <a name="context_name_tc"></a><span class="summary-name">context_name_tc</span><br />
+      The text field containing the contextual name of the verb.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.TextCtrl</span>
+    </td><td class="summary">
+        <a name="constant_name_tc"></a><span class="summary-name">constant_name_tc</span><br />
+      The readonly text field containing the constant name of the 
+      verb.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.RadioButton</span>
+    </td><td class="summary">
+        <a name="follower_radio"></a><span class="summary-name">follower_radio</span><br />
+      The radio button that denotes the verb as a follower.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.RadioButton</span>
+    </td><td class="summary">
+        <a name="supporter_radio"></a><span class="summary-name">supporter_radio</span><br />
+      The radio button that denotes the verb as a supporter.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.BoxSizer</span>
+    </td><td class="summary">
+        <a href="Gui.VerbPanel-class.html#preconds_sizer" class="summary-name">preconds_sizer</a><br />
+      The sizer that manages the preconditions section.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.CheckBox</span>
+    </td><td class="summary">
+        <a name="terminal_chk"></a><span class="summary-name">terminal_chk</span><br />
+      The checkbox that denotes the verb as terminal or not.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.BitmapButton</span>
+    </td><td class="summary">
+        <a href="Gui.VerbPanel-class.html#add_follower_btn" class="summary-name">add_follower_btn</a><br />
+      Button used to add a follower.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.BitmapButton</span>
+    </td><td class="summary">
+        <a href="Gui.VerbPanel-class.html#trash_follower_btn" class="summary-name">trash_follower_btn</a><br />
+      Button used to restore a deleted follower.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.BoxSizer</span>
+    </td><td class="summary">
+        <a href="Gui.VerbPanel-class.html#followers_sizer" class="summary-name">followers_sizer</a><br />
+      The sizer that manages the followers section.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.ComboBox</span>
+    </td><td class="summary">
+        <a href="Gui.VerbPanel-class.html#actual_verb_cb" class="summary-name">actual_verb_cb</a><br />
+      The combo box for the actual verb.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.BoxSizer</span>
+    </td><td class="summary">
+        <a href="Gui.VerbPanel-class.html#description_sizer" class="summary-name">description_sizer</a><br />
+      The sizer that manages the description portion of the actual verb 
+      section.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.BoxSizer</span>
+    </td><td class="summary">
+        <a href="Gui.VerbPanel-class.html#vdargs_sizer" class="summary-name">vdargs_sizer</a><br />
+      The sizer that manages the VerbData arguments portion of the 
+      actual verb section.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">wx.BoxSizer</span>
+    </td><td class="summary">
+        <a href="Gui.VerbPanel-class.html#vargs_sizer" class="summary-name">vargs_sizer</a><br />
+      The sizer that manages the verb arguments portion of the actual 
+      verb section.
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._windows.Panel</code></b>:
+      <code>thisown</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Window</code></b>:
+      <code>AcceleratorTable</code>,
+      <code>AutoLayout</code>,
+      <code>BackgroundColour</code>,
+      <code>BackgroundStyle</code>,
+      <code>BestSize</code>,
+      <code>BestVirtualSize</code>,
+      <code>Border</code>,
+      <code>Caret</code>,
+      <code>CharHeight</code>,
+      <code>CharWidth</code>,
+      <code>Children</code>,
+      <code>ClientAreaOrigin</code>,
+      <code>ClientRect</code>,
+      <code>ClientSize</code>,
+      <code>Constraints</code>,
+      <code>ContainingSizer</code>,
+      <code>Cursor</code>,
+      <code>DefaultAttributes</code>,
+      <code>DropTarget</code>,
+      <code>EffectiveMinSize</code>,
+      <code>Enabled</code>,
+      <code>EventHandler</code>,
+      <code>ExtraStyle</code>,
+      <code>Font</code>,
+      <code>ForegroundColour</code>,
+      <code>GrandParent</code>,
+      <code>Handle</code>,
+      <code>HelpText</code>,
+      <code>Id</code>,
+      <code>Label</code>,
+      <code>LayoutDirection</code>,
+      <code>MaxHeight</code>,
+      <code>MaxSize</code>,
+      <code>MaxWidth</code>,
+      <code>MinHeight</code>,
+      <code>MinSize</code>,
+      <code>MinWidth</code>,
+      <code>Name</code>,
+      <code>Parent</code>,
+      <code>Position</code>,
+      <code>Rect</code>,
+      <code>ScreenPosition</code>,
+      <code>ScreenRect</code>,
+      <code>Shown</code>,
+      <code>Size</code>,
+      <code>Sizer</code>,
+      <code>ThemeEnabled</code>,
+      <code>ToolTip</code>,
+      <code>TopLevel</code>,
+      <code>TopLevelParent</code>,
+      <code>UpdateClientRect</code>,
+      <code>UpdateRegion</code>,
+      <code>Validator</code>,
+      <code>VirtualSize</code>,
+      <code>WindowStyle</code>,
+      <code>WindowStyleFlag</code>,
+      <code>WindowVariant</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.EvtHandler</code></b>:
+      <code>EvtHandlerEnabled</code>,
+      <code>NextHandler</code>,
+      <code>PreviousHandler</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>wx._core.Object</code></b>:
+      <code>ClassName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">verb</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Sets up the instance variables, widgets, and widget settings.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>parent</code></strong> (wx.Window) - The object creating this widget.</li>
+        <li><strong class="pname"><code>verb</code></strong> (<a href="Codegen.Verb-class.html" class="link">Verb</a>) - The verb this panel is displaying.</li>
+        <li><strong class="pname"><code>args</code></strong> - Unnamed arguments, passed to the parent class's __init__ 
+          function.</li>
+        <li><strong class="pname"><code>kwargs</code></strong> - Named arguments, passed to the parent class's __init__ 
+          function.</li>
+    </ul></dd>
+    <dt>Overrides:
+      wx._windows.Panel.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnDeleteVerb"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnDeleteVerb</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnDeleteVerb">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Delete the current verb, and add it to the verb trash.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_BUTTON.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnContextNameFocus"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnContextNameFocus</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnContextNameFocus">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Change the context name to what's currently in the context name 
+  TextCtrl.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_KILL_FOCUS.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnFollowerRadio"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnFollowerRadio</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnFollowerRadio">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Change the follower-ness of the verb.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_RADIOBUTTON.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTerminalCheck"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTerminalCheck</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnTerminalCheck">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Change the terminal-ness of the verb.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_CHECKBOX.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnAddPrecond"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnAddPrecond</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnAddPrecond">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Create a precondition then add it to the panel.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_BUTTON.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnChangePrecond"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnChangePrecond</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnChangePrecond">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Change a precondition.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_KILL_FOCUS.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnDelPrecond"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnDelPrecond</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnDelPrecond">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Remove a precondition.  Add it to the trash if it contained 
+  something.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_BUTTON.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTrashPrecond"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTrashPrecond</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnTrashPrecond">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Show a popup menu with the previously deleted preconditions.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_BUTTON.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnRestorePrecond"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnRestorePrecond</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnRestorePrecond">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Restore a previous deleted precondition.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_MENU.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnAddFollower"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnAddFollower</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnAddFollower">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Add a new follower to the verb, then add the widgets to the panel.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_BUTTON.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnChangeFollower"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnChangeFollower</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnChangeFollower">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Change a follower.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_CHOICE.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnDelFollower"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnDelFollower</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnDelFollower">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Remove a follower.  Add it to the trash if it contained something.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_BUTTON.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTrashFollower"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTrashFollower</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnTrashFollower">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Show a popup menu with the previously deleted followers.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_BUTTON.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnRestoreFollower"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnRestoreFollower</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnRestoreFollower">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Restore a deleted follower.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_MENU.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnLoadVerbs"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnLoadVerbs</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnLoadVerbs">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Open a file dialog to load the util_verbs.nss file.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_BUTTON.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnActualVerbFocus"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnActualVerbFocus</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnActualVerbFocus">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Set the actual verb based on the entered text.  This does not change 
+  the actual verb section's widgets.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_KILL_FOCUS.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnActualVerbSelect"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnActualVerbSelect</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnActualVerbSelect">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Set the actual verb based on the selection, then add the associated 
+  widgets.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_COMBOBOX.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnSetVDarg"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnSetVDarg</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnSetVDarg">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Set a VerbData argument based on an entered or selected value.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_COMBOBOX or EVT_KILL_FOCUS.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnSetVarg"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnSetVarg</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.OnSetVarg">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Set a verb argument based on an entered or selected value.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>event</code></strong> (wx.CommandEvent) - Event created by EVT_COMBOBOX or EVT_KILL_FOCUS.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="RemoveFollowers"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RemoveFollowers</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">verb</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.RemoveFollowers">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  <p>If this verb has the passed verb as a follower, delete it and the 
+  associated widgets.</p>
+  This is designed to be called when a verb is deleted, to keep 
+  everything consistent.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>verb</code></strong> (<a href="Codegen.Verb-class.html" class="link">Verb</a>) - The follower we want to remove.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ChangeContextName"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ChangeContextName</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.ChangeContextName">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Change the context name of the verb and update the UI.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (string) - The new context name.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ChangeFollower"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ChangeFollower</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">follower</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.ChangeFollower">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Change the follower-ness of the verb and update the UI.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>follower</code></strong> (bool) - Is this verb a follower?</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ChangeTerminal"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ChangeTerminal</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">terminal</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.ChangeTerminal">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Change the terminal-ness of the verb and update the UI.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>terminal</code></strong> (bool) - Is this verb terminal?</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddPrecondToPanel"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddPrecondToPanel</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">precond</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddPrecondToPanel">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Add widgets to display the precondition on the panel.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>precond</code></strong> (string) - The precondition being added to the panel.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddFollowerToPanel"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddFollowerToPanel</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">follower</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddFollowerToPanel">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Add widgets to display the follower on the panel.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>follower</code></strong> (<a href="Codegen.Verb-class.html" class="link">Verb</a>) - The verb we wish to add as a follower on the panel.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddActualVerbWidgets"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddActualVerbWidgets</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">actual_verb</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddActualVerbWidgets">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Add the widgets associated with the ActualVerb.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>actual_verb</code></strong> (<a href="Codegen.ActualVerb-class.html" 
+          class="link">ActualVerb</a>) - Defines which widgets we will add to the panel.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddVDArgWidgets"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddVDArgWidgets</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">ix</span>,
+        <span class="sig-arg">vdarg</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddVDArgWidgets">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Add the widgets associated with a VerbData argument.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>ix</code></strong> (int) - The index in the verb's vdarguments list.</li>
+        <li><strong class="pname"><code>vdarg</code></strong> (string) - The VerbData argument we are adding widgets for.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddVArgWidgets"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddVArgWidgets</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">ix</span>,
+        <span class="sig-arg">varg</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.AddVArgWidgets">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Add the widgets associated with a Verb argument.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>ix</code></strong> (int) - The index in the verb's varguments list.</li>
+        <li><strong class="pname"><code>vdarg</code></strong> (string) - The verb argument we are adding widgets for.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ChangeActualVerb"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ChangeActualVerb</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">actual_name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Gui-pysrc.html#VerbPanel.ChangeActualVerb">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </table>
+  
+  Set the actual verb based on the passed text.  This does not change 
+  the actual verb section's widgets.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>actual_name</code></strong> (string) - The name of the actual verb associated with this verb.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="preconds_sizer"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">preconds_sizer</h3>
+  The sizer that manages the preconditions section.  We keep track of 
+  this so we can add new precondition widgets to it.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>wx.BoxSizer</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="add_follower_btn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">add_follower_btn</h3>
+  Button used to add a follower.  We keep track of this so that we can 
+  disable it for terminal verbs.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>wx.BitmapButton</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="trash_follower_btn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">trash_follower_btn</h3>
+  Button used to restore a deleted follower.  We keep track of this so 
+  that we can disable it for terminal verbs.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>wx.BitmapButton</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="followers_sizer"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">followers_sizer</h3>
+  The sizer that manages the followers section.  We keep track of this 
+  so we can add new follower widgets to it.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>wx.BoxSizer</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="actual_verb_cb"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">actual_verb_cb</h3>
+  The combo box for the actual verb.  If the <code>util_verbs.nss</code>
+  file has been loaded, those verbs are available to be selected.  In 
+  either case, one can type anything in the combo box.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>wx.ComboBox</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="description_sizer"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">description_sizer</h3>
+  The sizer that manages the description portion of the actual verb 
+  section. We keep track of this because we will need to add and remove 
+  items from it when the actual verb changes.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>wx.BoxSizer</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="vdargs_sizer"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">vdargs_sizer</h3>
+  The sizer that manages the VerbData arguments portion of the actual 
+  verb section. We keep track of this because we will need to add and 
+  remove items from it when the actual verb changes.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>wx.BoxSizer</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="vargs_sizer"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">vargs_sizer</h3>
+  The sizer that manages the verb arguments portion of the actual verb 
+  section. We keep track of this because we will need to add and remove 
+  items from it when the actual verb changes.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>wx.BoxSizer</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Behaviour Tool</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Fri Aug 17 10:31:36 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

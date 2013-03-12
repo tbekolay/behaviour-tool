@@ -1,0 +1,103 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Tutorials</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  body {
+    background-color:#f7f7f7; 
+    font-family:Arial,Helvetica,sans-serif; font-size:11pt;
+  }
+  textarea, pre, code { font-size:0.9em; }
+  pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier; }
+  pre { line-height:1.2em; }
+  pre code, code code, pre pre { font-size:100%; }
+  h1, h2, h3, h4, h5, h6 { margin-top:1.0em; margin-bottom:0.6em; }
+  h1, h2, h3, h6 { font-weight:normal; }
+  h4, h5 { font-weight:bold; }
+  h1 code, h2 code, h3 code, h4 code { font-size:1em; }
+  h1 { font-size:1.8em; }
+  h2 { font-size:1.44em; }
+  h3 { font-size:1.22em; }
+  h4 { font-size:1.07em; }
+  h5 { font-size:1.0em; }
+  h6 { font-size:1.0em; }
+  .pagegroup { margin-top:8px; margin-bottom:2px; }
+  .pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+  #wikitext { margin-top:12px; line-height:1.33em; }
+  #wikiedit form { margin:0px; width:100%; }
+  #wikiedit textarea { width:100%; }
+  .wikimessage { margin-top:4px; margin-bottom:4px; font-style:italic; }
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  .frame {
+    border:1px solid #cccccc; padding:4px; background-color:#f9f9f9;
+  }
+  .lfloat { float:left; margin-right:0.5em; }
+  .rfloat { float:right; margin-left:0.5em; }
+  a.varlink { text-decoration:none; }
+--></style>
+
+</head>
+<body>
+<div id='wikititle'><h1 class='pagetitle'>Tutorials</h1></div>
+<div id='wikitext'>
+<p>If you just want to get started making or editing behaviours, then follow one of the tutorials listed below.  If there are any tutorials that you think should be created, please <a class='urllink' href='mailto:trevor%20AT%20bekolay%20DOT%20org' rel='nofollow'>email me</a>!
+</p>
+<div class='vspace'></div><h2>Creating a New Behaviour</h2>
+<ul><li>If Behaviour Tool is not running
+<ul><li>Open the behaviour tool.
+</li></ul></li><li>If Behaviour Tool is running
+<ul><li>Start a new behaviour by clicking on <code>File -&gt; New Behaviour</code> or pressing <code>Ctrl+N</code>
+</li><br /><img src='images/new_behaviour.png' /></ul></li></ul><ol><li>Add the necessary actors and variables first, so that you can use them as arguments to verbs.
+</li><li>Add the necessary verbs.
+</li><li>Connect the verbs by defining which verbs follow each verb.  To ensure the verbs relate as you expect them, return to the main behaviour tab and observe the generated graph.
+</li><li>When the objects have been manipulated to your satisfaction, save the behaviour to a directory of your choice; two files (a <code>b_&lt;behaviour name&gt;.nss</code> file and a <code>z_b_&lt;behaviour name&gt;.nss</code> file) will be created and saved in that directory.
+</li><li><a href='#addtomodule'>Add the behaviour to a module</a>.  Open the module in the Aurora Toolset to manually edit sections of the generated script files as necessary.
+</li></ol><div class='vspace'></div><h2>Editing an Existing Behaviour</h2>
+<ol><li>Click on <code>File -&gt; Open Behaviour...</code> or press <code>Ctrl+O</code> to open the Open dialog box.
+</li><br /><img src='images/open_behaviour.png' /><li>Find the <code>b_&lt;behaviour name&gt;.nss</code> file for the behaviour you want to open, and double click on it.
+</li></ol><div class='vspace'></div><h2>Re-ordering Verbs</h2>
+<p>While order does not usually matter, it should be noted that the first verb in the behaviour object will be the first verb executed when a behaviour is started.
+</p>
+<div class='vspace'></div><ol><li>Save the behaviour (<code>File -&gt; Save Behaviour</code>, or <code>Ctrl+S</code>), as if something goes wrong during this process, you could lose some of your work.
+</li><li>Delete the verbs that you would like to reorder by click the red X <img src='images/redx.png' /> in the top right corner of those verbs' tabs.
+</li><li>Return to the first tab (the behaviour tab).
+</li><li>In the top right hand corner, there's a trash icon.  Clicking on it brings up a list of the verbs you've deleted.
+</li><li>Click on a verb's name to restore it.  The verb is added to the end of the current list of verbs, so you can restore the verbs in the order you want them in.
+</li></ol><p class='vspace'><a name='addtomodule' id='addtomodule'></a>
+</p><h2>Adding a Behaviour to a Module</h2>
+<ol><li>Using modpacker
+<ol><li>Unpack all of a module's files to a certain directory.
+</li><li>Create or open a behaviour in Behaviour Tool.
+</li><li>Save the behaviour in the directory that contains the module's files (<code>File -&gt; Save Behaviour In...</code>, or <code>Alt+S</code>).
+</li><li>Pack the directory into a module.
+</li></ol><div class='vspace'></div></li><li>Using the Aurora toolset
+<ol><li>Open the module you want to add your behaviour to.
+</li><li>Create or open a behaviour in Behaviour Tool.
+</li><li>Save the behaviour in <code>&lt;NWN directory&gt;\modules\temp0</code> (<code>File -&gt; Save Behaviour In...</code>, or <code>Alt+S</code>).
+</li><li>Make some change to the open module (easiest way is to just build it).
+</li><li>Save the module (this packs all of the files in <code>&lt;NWN directory&gt;\modules\temp0</code> into the .mod file).
+</li><li>Re-open the module.
+</li></ol></li></ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Code Generation Templates</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  body {
+    background-color:#f7f7f7; 
+    font-family:Arial,Helvetica,sans-serif; font-size:11pt;
+  }
+  textarea, pre, code { font-size:0.9em; }
+  pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier; }
+  pre { line-height:1.2em; }
+  pre code, code code, pre pre { font-size:100%; }
+  h1, h2, h3, h4, h5, h6 { margin-top:1.0em; margin-bottom:0.6em; }
+  h1, h2, h3, h6 { font-weight:normal; }
+  h4, h5 { font-weight:bold; }
+  h1 code, h2 code, h3 code, h4 code { font-size:1em; }
+  h1 { font-size:1.8em; }
+  h2 { font-size:1.44em; }
+  h3 { font-size:1.22em; }
+  h4 { font-size:1.07em; }
+  h5 { font-size:1.0em; }
+  h6 { font-size:1.0em; }
+  .pagegroup { margin-top:8px; margin-bottom:2px; }
+  .pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+  #wikitext { margin-top:12px; line-height:1.33em; }
+  #wikiedit form { margin:0px; width:100%; }
+  #wikiedit textarea { width:100%; }
+  .wikimessage { margin-top:4px; margin-bottom:4px; font-style:italic; }
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  .frame {
+    border:1px solid #cccccc; padding:4px; background-color:#f9f9f9;
+  }
+  .lfloat { float:left; margin-right:0.5em; }
+  .rfloat { float:right; margin-left:0.5em; }
+  a.varlink { text-decoration:none; }
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<div id='wikititle'><h1 class='pagetitle'>Code Generation Templates</h1></div>
+<div id='wikitext'>
+<p class='vspace'>Below are the main templates used in code generation.  Simple pseudo-code is used in the appropriate places.  If the pseudo-code is not clear, please see the example code below the templates.  Text in black is part of a template.  <span  style='color: teal;'>Variables appear in teal.</span>  <span  style='color: purple;'>Pseudo-code appears in purple.</span>
+</p>
+<div class='vspace'></div><h4>z_b_<span  style='color: teal;'>behaviour_name</span></h4>
+<div  style='background-color: #eeeeff; border: 2px dotted blue; white-space: pre; font-size: 0.9em; font-family: Lucida Console;' >#include "b_<span  style='color: teal;'>behaviour_name</span>" 
+<p class='vspace'>// main will be called by a verb when it has been completed, through <span class='wikiword'>ExecuteScript</span>.
+void main()
+{
+</p><pre>    int iBehaviour = <span class='wikiword'>GetLocalInt</span>(<span class='wikiword'>GetModule</span>(), "curr_behaviour");
+    int iReturn = getVerbReturn(iBehaviour);
+    int iVerb = getVerbFinished(iBehaviour);
+
+    if (iReturn == SUCCESS)
+    {
+        control_<span  style='color: teal;'>behaviour_name</span>(iBehaviour, iVerb);
+    }
+    else
+    {
+        timeout_<span  style='color: teal;'>behaviour_name</span>(iBehaviour);
+    }
+</pre><p>}
+</p></div>
+<div class='vspace'></div><h4>b_<span  style='color: teal;'>behaviour_name</span></h4>
+<div  style='background-color: #eeeeff; border: 2px dotted blue; white-space: pre; font-size: 0.9em; font-family: Lucida Console;' >#include "util_bintarray" 
+<p>#include "util_behaviour"
+#include "util_verbs"
+</p>
+<p class='vspace'>///////////  Constants      ///////////
+<span  style='color: purple;'>foreach Verb in Behaviour:</span>
+const int <span  style='color: purple;'>if(</span><span  style='color: teal;'>follower</span><span  style='color: purple;'>){F_} else{S_}</span><span  style='color: teal;'>verb_name</span> = <span  style='color: purple;'>next valid number (if </span><span  style='color: teal;'>follower</span><span  style='color: purple;'> even, else odd)</span>;
+</p>
+<p class='vspace'>///////////  Declarations   ///////////
+int  start_<span  style='color: teal;'>behaviour_name</span>(int iTimeout, int iInterrupt <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:, variable type</span><span  style='color: teal;'> variable name</span>);
+void checkcues_<span  style='color: teal;'>behaviour_name</span>(int iTimeout, int iBehaviour);
+void control_<span  style='color: teal;'>behaviour_name</span>(int iBehaviour, int iVerb);
+void cleanup_<span  style='color: teal;'>behaviour_name</span>(int iBehaviour);
+void timeout_<span  style='color: teal;'>behaviour_name</span>(int iBehaviour);
+void segue_<span  style='color: teal;'>behaviour_name</span>(int iBehaviour);
+</p>
+<p class='vspace'>/////////// Implementations ///////////
+</p>
+<p class='vspace'>// Initializes the <span  style='color: teal;'>behaviour_name</span> behaviour.
+<span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:</span>
+//  - <span  style='color: teal;'>actor/variable_description</span>
+int start_<span  style='color: teal;'>behaviour_name</span>(int iTimeout, int iInterrupt <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:, variable type</span><span  style='color: teal;'> variable name</span>)
+{
+</p><pre>    // Make sure we have have what we need to start the behaviour.
+    if (<span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:</span>
+        <span  style='color: teal;'>actor/variable_name </span><span  style='color: purple;'>!= Invalid Value</span>)
+    {
+        object o<span  style='color: teal;'>behaviour_name</span> = createBehaviourObject();
+        int iID = <span class='wikiword'>GetLocalInt</span>(o<span  style='color: teal;'>behaviour_name</span>, "ID");
+
+        // Check out our actors.
+        if (<span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor</span><span  style='color: purple;'>: b_Checkout(o</span><span  style='color: teal;'>actor_name</span>, iID, iInterrupt))
+        {
+            // Set necessary paramters on the behaviour object.
+            <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:</span>
+            <span class='wikiword'>SetLocal</span><span  style='color: purple;'>variable type</span>(o<span  style='color: teal;'>behaviour_name</span>, "<span  style='color: teal;'>actor/variable_name</span>", <span  style='color: teal;'>actor/variable_name</span>);
+
+            <span class='wikiword'>SetLocalInt</span>   (o<span  style='color: teal;'>behaviour_name</span>, "iInterrupt" , iInterrupt );
+            <span class='wikiword'>SetLocalString</span>(o<span  style='color: teal;'>behaviour_name</span>, "sScript"    , "z_b_<span  style='color: teal;'>behaviour_name</span>");
+
+            // Set up the cue array and add the first step to it.
+            intarrayNew(o<span  style='color: teal;'>behaviour_name</span>, "cues");
+            addCue(iID, <span  style='color: teal;'>verb[0]_name</span>);
+
+            checkcues_<span  style='color: teal;'>behaviour_name</span>(iTimeout, iID);
+
+            return iID;
+        }
+    }
+
+    return FALSE;
+</pre><p>}
+</p>
+<p class='vspace'>void checkcues_<span  style='color: teal;'>behaviour_name</span>(int iTimeout, int iBehaviour)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: teal;'>behaviour_name</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:</span>
+    <span  style='color: purple;'>variable type </span><span  style='color: teal;'>actor/variable_name</span> = <span class='wikiword'>GetLocal</span><span  style='color: purple;'>variable type</span>(o<span  style='color: teal;'>behaviour_name</span>, "<span  style='color: teal;'>actor/variable_name</span>");
+
+    // Are we finished?
+    if (getBehaviourFinished(iBehaviour))
+    {
+        cleanup_<span  style='color: teal;'>behaviour_name</span>(iBehaviour);
+        return;
+    }
+
+    // Check to see if we want to segue before we check if we're paused.
+    if (getSegueToBehaviour(iBehaviour))
+    {
+        segue_<span  style='color: teal;'>behaviour_name</span>(iBehaviour);
+        setSegueToBehaviour(iBehaviour, FALSE);
+        setBehaviourPaused(iBehaviour, FALSE);
+        <span class='wikiword'>DelayCommand</span>(2*DEFAULT_HEARTBEAT_DELAY, checkcues_<span  style='color: teal;'>behaviour_name</span>(iTimeout, iBehaviour));
+        return;
+    }
+
+    // If we're paused, we'll just idle (no need to check as often as usual).
+    if (getBehaviourPaused(iBehaviour))
+    {
+        <span class='wikiword'>DebugPrint</span>("<span  style='color: teal;'>behaviour_name</span> paused...");
+        <span class='wikiword'>DelayCommand</span>(4*DEFAULT_HEARTBEAT_DELAY, checkcues_<span  style='color: teal;'>behaviour_name</span>(iTimeout, iBehaviour));
+        return;
+    }
+
+    // Have we timed out?
+    if (!iTimeout)
+    {
+        timeout_<span  style='color: teal;'>behaviour_name</span>(iBehaviour);
+        <span class='wikiword'>DelayCommand</span>(DEFAULT_HEARTBEAT_DELAY, checkcues_<span  style='color: teal;'>behaviour_name</span>(iTimeout, iBehaviour));
+        return;
+    }
+
+    // Run through each cue and see if any of them fire
+    int c_ix, c_max, iVerb;
+
+    c_max = getNumCues(iBehaviour);
+
+    for (c_ix = 0; c_ix &lt; c_max; c_ix++)
+    {
+        iVerb = getNextCue(iBehaviour);
+        <span class='wikiword'>DebugPrint</span>("Checking verb " + <span class='wikiword'>IntToString</span>(iVerb));
+
+        switch (iVerb)
+        {
+        <span  style='color: purple;'>foreach Verb in Behaviour:</span>
+        case <span  style='color: purple;'>if(</span><span  style='color: teal;'>follower</span><span  style='color: purple;'>){F_} else{S_}</span><span  style='color: teal;'>verb_name</span>:
+            <span  style='color: purple;'>if (</span><span  style='color: teal;'>verb_precondition</span><span  style='color: purple;'>)</span>
+            {
+                <span  style='color: teal;'>verb's actual_verb</span>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour<span  style='color: purple;'>foreach arg to </span><span  style='color: teal;'>verb_data</span><span  style='color: purple;'>: </span><span  style='color: teal;'>, argument</span>)<span  style='color: purple;'>foreach arg to </span><span  style='color: teal;'>actual_verb</span><span  style='color: purple;'>:, </span><span  style='color: teal;'>actual_verb argument</span>);
+                <span  style='color: purple;'>if(</span><span  style='color: teal;'>follower</span><span  style='color: purple;'>):</span>
+                    clearFollowerCues(iBehaviour);
+                <span  style='color: purple;'>else:</span>
+                    removeCue(iBehaviour, <span  style='color: teal;'>current_verb_name</span>);
+                c_max = getNumCues(iBehaviour);
+            }
+            break;
+        }
+    }
+
+    <span class='wikiword'>DelayCommand</span>(DEFAULT_HEARTBEAT_DELAY, checkcues_<span  style='color: teal;'>behaviour_name</span>(iTimeout-1, iBehaviour));
+
+    <span class='wikiword'>DebugPrint</span>("<span  style='color: teal;'>behaviour_name</span> " + <span class='wikiword'>IntToString</span>(iBehaviour) + " tick...");
+</pre><p>}
+</p>
+<p class='vspace'>void control_<span  style='color: teal;'>behaviour_name</span>(int iBehaviour, int iVerb)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: teal;'>behaviour_name</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:</span>
+    <span  style='color: purple;'>variable type </span><span  style='color: teal;'>actor/variable_name</span> = <span class='wikiword'>GetLocal</span><span  style='color: purple;'>variable type</span>(o<span  style='color: teal;'>behaviour_name</span>, "<span  style='color: teal;'>actor/variable_name</span>");
+
+    switch (iVerb)
+    {
+    <span  style='color: purple;'>foreach Verb in Behaviour:</span>
+    case <span  style='color: purple;'>if(</span><span  style='color: teal;'>follower</span><span  style='color: purple;'>){F_} else{S_}</span><span  style='color: teal;'>verb_name</span>:
+        <span  style='color: purple;'>if </span><span  style='color: teal;'>Verb </span><span  style='color: purple;'>is </span><span  style='color: teal;'>terminal</span><span  style='color: purple;'>:</span>
+        setBehaviourFinished(iBehaviour);
+        <span  style='color: purple;'>else:</span>
+            <span  style='color: purple;'>foreach </span><span  style='color: teal;'>follower </span><span  style='color: purple;'>in </span><span  style='color: teal;'>Verb</span><span  style='color: purple;'>:</span>
+            addCue(iBehaviour, <span  style='color: teal;'>current_verb_name</span>);
+        break;
+    }
+</pre><p>}
+</p>
+<p class='vspace'>void cleanup_<span  style='color: teal;'>behaviour_name</span>(int iBehaviour)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: teal;'>behaviour_name</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:</span>
+    <span  style='color: purple;'>variable type </span><span  style='color: teal;'>actor/variable_name</span> = <span class='wikiword'>GetLocal</span><span  style='color: purple;'>variable type</span>(o<span  style='color: teal;'>behaviour_name</span>, "<span  style='color: teal;'>actor/variable_name</span>");
+    int    iInterrupt = <span class='wikiword'>GetLocalInt</span>(o<span  style='color: teal;'>behaviour_name</span>, "iInterrupt");
+
+    // If we paused behaviours, we'll segue back into them.
+    if (iInterrupt == INTERRUPT_PAUSE)
+    {
+        int iPrevious;
+
+        <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor</span><span  style='color: purple;'>:</span>
+        iPrevious = b_GetPausedBehaviour(<span  style='color: teal;'>actor_name</span>);
+        if (iPrevious)
+        {
+            setSegueToBehaviour(iPrevious, TRUE);
+        }
+
+    }
+
+    <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor</span><span  style='color: purple;'>:</span>
+    b_Checkin(<span  style='color: teal;'>actor_name</span>);
+    destroyBehaviourObject(iBehaviour);
+</pre><p>}
+</p>
+<p class='vspace'>void timeout_<span  style='color: teal;'>behaviour_name</span>(int iBehaviour)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: teal;'>behaviour_name</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:</span>
+    <span  style='color: purple;'>variable type </span><span  style='color: teal;'>actor/variable_name</span> = <span class='wikiword'>GetLocal</span><span  style='color: purple;'>variable type</span>(o<span  style='color: teal;'>behaviour_name</span>, "<span  style='color: teal;'>actor/variable_name</span>");
+
+    // Insert timeout handling code here
+
+    setBehaviourFinished(iBehaviour);
+</pre><p>}
+</p>
+<p class='vspace'>void segue_<span  style='color: teal;'>behaviour_name</span>(int iBehaviour)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: teal;'>behaviour_name</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: purple;'>foreach </span><span  style='color: teal;'>actor </span><span  style='color: purple;'>and </span><span  style='color: teal;'>other variable</span><span  style='color: purple;'>:</span>
+    <span  style='color: purple;'>variable type </span><span  style='color: teal;'>actor/variable_name</span> = <span class='wikiword'>GetLocal</span><span  style='color: purple;'>variable type</span>(o<span  style='color: teal;'>behaviour_name</span>, "<span  style='color: teal;'>actor/variable_name</span>");
+
+    // Insert segue handling code here
+</pre><p>}
+</p></div>
+<div class='vspace'></div><h2>An Example: Fight</h2>
+<p>To illustrate the use of templates that classes use to generate <span class='wikiword'>NWScript</span> code, the entirety of the fight behaviour is reproduced below.  <span  style='color: red;'>Text in red is text to be generated by the verb class.</span> <span  style='color: green;'>Text in green is generated by the behaviour class.</span> <span  style='color: blue;'>Text in blue is part of a template.</span>  (Please note that the constant names have changed slightly; this script was generated before the first two letters of the behaviour were included in the constant names.)
+</p>
+<div class='vspace'></div><h4>z_b_fight</h4>
+<div  style='background-color: #eeeeff; border: 2px dotted blue; white-space: pre; font-size: 0.9em; font-family: Lucida Console; color: blue;' >#include "b_<span  style='color: green;'>fight</span>" 
+<p class='vspace'>// main will be called by a verb when it has been completed, through <span class='wikiword'>ExecuteScript</span>.
+void main()
+{
+</p><pre>    int iBehaviour = <span class='wikiword'>GetLocalInt</span>(<span class='wikiword'>GetModule</span>(), "curr_behaviour");
+    int iReturn = getVerbReturn(iBehaviour);
+    int iVerb = getVerbFinished(iBehaviour);
+
+    if (iReturn == SUCCESS)
+    {
+        control_<span  style='color: green;'>Fight</span>(iBehaviour, iVerb);
+    }
+    else
+    {
+        timeout_<span  style='color: green;'>Fight</span>(iBehaviour);
+    }
+</pre><p>}
+</p></div>
+<div class='vspace'></div><h4>b_fight</h4>
+<div  style='background-color: #eeeeff; border: 2px dotted blue; white-space: pre; font-size: 0.9em; font-family: Lucida Console; color: blue;' >#include "util_bintarray" 
+<p>#include "util_behaviour"
+#include "util_verbs"
+</p>
+<p class='vspace'>///////////  Constants      ///////////
+const int <span  style='color: green;'>F_INSTIGATE</span> = 2;
+const int <span  style='color: green;'>F_RECIPROCATE</span> = 4;
+const int <span  style='color: green;'>F_BACKDOWN</span> = 6;
+const int <span  style='color: green;'>F_FIGHT</span> = 8;
+const int <span  style='color: green;'>F_ESCAPE1</span> = 10;
+const int <span  style='color: green;'>F_BEAT</span> = 12;
+const int <span  style='color: green;'>F_BEATEN</span> = 14;
+const int <span  style='color: green;'>F_ESCAPE2</span> = 16;
+const int <span  style='color: green;'>S_BACKDOWN</span> = 1;
+const int <span  style='color: green;'>S_INSTIGATE</span> = 3;
+const int <span  style='color: green;'>S_CALLFRIEND</span> = 5;
+</p>
+<p class='vspace'>///////////  Declarations   ///////////
+int  start_<span  style='color: green;'>Fight</span>(int iTimeout, int iInterrupt<span  style='color: green;'>, object oInstigator, object oVictim</span>);
+void checkcues_<span  style='color: green;'>Fight</span>(int iTimeout, int iBehaviour);
+void control_<span  style='color: green;'>Fight</span>(int iBehaviour, int iVerb);
+void cleanup_<span  style='color: green;'>Fight</span>(int iBehaviour);
+void timeout_<span  style='color: green;'>Fight</span>(int iBehaviour);
+void segue_<span  style='color: green;'>Fight</span>(int iBehaviour);
+</p>
+<p class='vspace'>/////////// Implementations ///////////
+</p>
+<p class='vspace'>// Initializes the <span  style='color: green;'>fight</span> behaviour.
+<span  style='color: green;'>//  - If the instigator or victim is not specified, someone will be chosen.</span>
+<span  style='color: green;'>//  - If an actor is specified but is not available, this will fail and nothing will happen.</span>
+int start_<span  style='color: green;'>Fight</span>(int iTimeout, int iInterrupt<span  style='color: green;'>, object oInstigator, object oVictim</span>)
+{
+</p><pre>    // Make sure we have have what we need to start the behaviour.
+    if (<span  style='color: green;'>oInstigator!= OBJECT_INVALID &amp;&amp; oVictim != OBJECT_INVALID</span>)
+    {
+        object o<span  style='color: green;'>Fight</span> = createBehaviourObject();
+        int iID = <span class='wikiword'>GetLocalInt</span>(o<span  style='color: green;'>Fight</span>, "ID");
+
+        // Check out our actors.
+        if (b_Checkout(<span  style='color: green;'>oInstigator</span>, iID, iInterrupt) &amp;&amp; b_Checkout(<span  style='color: green;'>oVictim</span>, iID, iInterrupt))
+        {
+            // Set necessary paramters on the behaviour object.
+            <span class='wikiword'>SetLocal</span><span  style='color: green;'>Object</span>(o<span  style='color: green;'>Fight</span>, "<span  style='color: green;'>oInstigator</span>", <span  style='color: green;'>oInstigator</span>);
+            <span class='wikiword'>SetLocal</span><span  style='color: green;'>Object</span>(o<span  style='color: green;'>Fight</span>, "<span  style='color: green;'>oVictim</span>"    , <span  style='color: green;'>oVictim    </span>);
+            <span class='wikiword'>SetLocalInt</span>   (o<span  style='color: green;'>Fight</span>, "iInterrupt" , iInterrupt );
+            <span class='wikiword'>SetLocalString</span>(o<span  style='color: green;'>Fight</span>, "sScript"    , "z_b_<span  style='color: green;'>fight</span>");
+
+            // Set up the cue array and add the first step to it.
+            intarrayNew(o<span  style='color: green;'>Fight</span>, "cues");
+            addCue(iID, <span  style='color: green;'>F_INSTIGATE</span>);
+
+            checkcues_<span  style='color: green;'>Fight</span>(iTimeout, iID);
+
+            return iID;
+        }
+    }
+
+    return FALSE;
+</pre><p>}
+</p>
+<p class='vspace'>void checkcues_<span  style='color: green;'>Fight</span>(int iTimeout, int iBehaviour)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: green;'>Fight</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: green;'>object oInstigator</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(o<span  style='color: green;'>Fight</span>, "<span  style='color: green;'>oInstigator</span>");
+    <span  style='color: green;'>object oVictim</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(o<span  style='color: green;'>Fight</span>, "<span  style='color: green;'>oVictim</span>");
+
+    // Are we finished?
+    if (getBehaviourFinished(iBehaviour))
+    {
+        cleanup_<span  style='color: green;'>Fight</span>(iBehaviour);
+        return;
+    }
+
+    // Check to see if we want to segue before we check if we're paused.
+    if (getSegueToBehaviour(iBehaviour))
+    {
+        segue_<span  style='color: green;'>Fight</span>(iBehaviour);
+        setSegueToBehaviour(iBehaviour, FALSE);
+        setBehaviourPaused(iBehaviour, FALSE);
+        <span class='wikiword'>DelayCommand</span>(2*DEFAULT_HEARTBEAT_DELAY, checkcues_<span  style='color: green;'>Fight</span>(iTimeout, iBehaviour));
+        return;
+    }
+
+    // If we're paused, we'll just idle (no need to check as often as usual).
+    if (getBehaviourPaused(iBehaviour))
+    {
+        <span class='wikiword'>DebugPrint</span>("<span  style='color: green;'>Fight</span> paused...");
+        <span class='wikiword'>DelayCommand</span>(4*DEFAULT_HEARTBEAT_DELAY, checkcues_<span  style='color: green;'>Fight</span>(iTimeout, iBehaviour));
+        return;
+    }
+
+    // Have we timed out?
+    if (!iTimeout)
+    {
+        timeout_<span  style='color: green;'>Fight</span>(iBehaviour);
+        <span class='wikiword'>DelayCommand</span>(DEFAULT_HEARTBEAT_DELAY, checkcues_<span  style='color: green;'>Fight</span>(iTimeout, iBehaviour));
+        return;
+    }
+
+    // Run through each cue and see if any of them fire
+    int c_ix, c_max, iVerb;
+
+    c_max = getNumCues(iBehaviour);
+
+    for (c_ix = 0; c_ix &lt; c_max; c_ix++)
+    {
+        iVerb = getNextCue(iBehaviour);
+        <span class='wikiword'>DebugPrint</span>("Checking verb " + <span class='wikiword'>IntToString</span>(iVerb));
+
+        switch (iVerb)
+        {
+        case <span  style='color: green;'>F_INSTIGATE</span>:
+</pre><p><span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>FaceAndSayLine</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oInstigator, oVictim</span><span  style='color: red;'>)</span><span  style='color: green;'>, "Put up your dukes, hero!"</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>clearFollowerCues(iBehaviour);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        case <span  style='color: green;'>F_RECIPROCATE</span>:
+</pre><p><span  style='color: red;'>            </span><span  style='color: green;'>if (<span class='wikiword'>GetLocalInt</span>(oVictim, "courage") &gt; 4)</span>
+<span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>FaceAndSayLine</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oVictim, oInstigator</span><span  style='color: red;'>)</span><span  style='color: green;'>, "Totally uncool... You're going down."</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>clearFollowerCues(iBehaviour);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        case <span  style='color: green;'>F_BACKDOWN</span>:
+</pre><p><span  style='color: red;'>            </span><span  style='color: green;'>if (<span class='wikiword'>GetLocalInt</span>(oVictim, "courage") &lt;= 4)</span>
+<span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>SayLine</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oVictim</span><span  style='color: red;'>variable%, "Uh... no... Just minding my own business..."</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>clearFollowerCues(iBehaviour);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        case <span  style='color: green;'>F_FIGHT</span>:
+</pre><p><span  style='color: red;'>            </span><span  style='color: green;'>if (<span class='wikiword'>GetDistanceBetween</span>(oInstigator, oVictim) &lt; 7.5f)</span>
+<span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>Fight</span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oInstigator, oVictim, OBJECT_INVALID, 1000)</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>clearFollowerCues(iBehaviour);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        case <span  style='color: green;'>F_ESCAPE1</span>:
+</pre><p><span  style='color: red;'>            </span><span  style='color: green;'>if ((<span class='wikiword'>GetArea</span>(oInstigator) != <span class='wikiword'>GetArea</span>(oVictim))</span>
+<span  style='color: red;'>            </span><span  style='color: green;'> || (<span class='wikiword'>GetDistanceBetween</span>(oInstigator, oVictim) &gt;= 15.0f))</span>
+<span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>SayLineWithAction</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oVictim</span><span  style='color: red;'>)</span><span  style='color: green;'>, "Phew... I think I'm safe...",</span>
+<span  style='color: red;'>                  </span><span  style='color: green;'>ANIMATION_LOOPING_PAUSE_TIRED, 1.0, 2.0</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>clearFollowerCues(iBehaviour);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        case <span  style='color: green;'>F_BEAT</span>:
+</pre><p><span  style='color: red;'>            </span><span  style='color: green;'>if (<span class='wikiword'>GetIsDead</span>(oInstigator))</span>
+<span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>SayLineWithAction</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oVictim</span><span  style='color: red;'>)</span><span  style='color: green;'>, "Oh god... what have I done!?",</span>
+<span  style='color: red;'>                  </span><span  style='color: green;'>ANIMATION_LOOPING_TALK_PLEADING, 1.0, 2.0</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>clearFollowerCues(iBehaviour);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        case <span  style='color: green;'>F_BEATEN</span>:
+</pre><p><span  style='color: red;'>            </span><span  style='color: green;'>if (<span class='wikiword'>GetIsDead</span>(oVictim))</span>
+<span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>SayLineWithAction</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oInstigator</span><span  style='color: red;'>)</span><span  style='color: green;'>, "Hehehe... fool got what they deserved.",</span>
+<span  style='color: red;'>                  </span><span  style='color: green;'>ANIMATION_LOOPING_TALK_LAUGHING, 1.0, 2.0</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>clearFollowerCues(iBehaviour);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        case <span  style='color: green;'>F_ESCAPE2</span>:
+</pre><p><span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>SayLineWithAction</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oInstigator</span><span  style='color: red;'>)</span><span  style='color: green;'>, "Geez... what a wuss.",</span>
+<span  style='color: red;'>                  </span><span  style='color: green;'>ANIMATION_FIREFORGET_PAUSE_BORED</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>clearFollowerCues(iBehaviour);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+
+        case <span  style='color: green;'>S_BACKDOWN</span>:
+</pre><p><span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>RunAwayFrom</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oVictim, oInstigator</span><span  style='color: red;'>));</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>removeCue(iBehaviour, S_BACKDOWN);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        case <span  style='color: green;'>S_INSTIGATE</span>:
+</pre><p><span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>WalkTowards</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oInstigator, oVictim</span><span  style='color: red;'>));</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>removeCue(iBehaviour, S_INSTIGATE);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        case <span  style='color: green;'>S_CALLFRIEND</span>:
+</pre><p><span  style='color: red;'>            {</span>
+<span  style='color: red;'>                </span><span  style='color: green;'><span class='wikiword'>CallForHelp</span></span><span  style='color: red;'>(<span class='wikiword'>VerbData</span>(iVerb, iBehaviour</span><span  style='color: green;'>, oVictim, oInstigator</span><span  style='color: red;'>variable%, "Someone, help me!"</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>                </span><span  style='color: green;'>removeCue(iBehaviour, S_CALLFRIEND);</span>
+<span  style='color: red;'>                c_max = getNumCues(iBehaviour);</span>
+<span  style='color: red;'>            }</span>
+</p><pre>            break;
+        }
+    }
+
+    <span class='wikiword'>DelayCommand</span>(DEFAULT_HEARTBEAT_DELAY, checkcues_<span  style='color: green;'>Fight</span>(iTimeout-1, iBehaviour));
+
+    <span class='wikiword'>DebugPrint</span>("<span  style='color: green;'>Fight</span> " + <span class='wikiword'>IntToString</span>(iBehaviour) + " tick...");
+</pre><p>}
+</p>
+<p class='vspace'>void control_<span  style='color: green;'>Fight</span>(int iBehaviour, int iVerb)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: green;'>Fight</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: green;'>object oInstigator</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(o<span  style='color: green;'>Fight</span>, <span  style='color: green;'>"oInstigator"</span>);
+    <span  style='color: green;'>object oVictim</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(o<span  style='color: green;'>Fight</span>, <span  style='color: green;'>"oVictim"</span>);
+
+    switch (iVerb)
+    {
+    case <span  style='color: green;'>F_INSTIGATE</span>:
+</pre><p><span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>S_INSTIGATE</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>        if (!<span class='wikiword'>GetIsPC</span>(oVictim))</span>
+<span  style='color: red;'>        {</span>
+<span  style='color: red;'>            addCue(iBehaviour, </span><span  style='color: green;'>F_RECIPROCATE</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>            addCue(iBehaviour, </span><span  style='color: green;'>F_BACKDOWN</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>        }</span>
+<span  style='color: red;'>        else</span>
+<span  style='color: red;'>        {</span>
+<span  style='color: red;'>            addCue(iBehaviour, </span><span  style='color: green;'>F_FIGHT</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>            addCue(iBehaviour, </span><span  style='color: green;'>F_ESCAPE1</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>        }</span>
+</p><pre>        break;
+    case <span  style='color: green;'>F_RECIPROCATE</span>:
+</pre><p><span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>F_FIGHT</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>S_CALLFRIEND</span><span  style='color: red;'>);</span>
+</p><pre>        break;
+    case <span  style='color: green;'>F_BACKDOWN</span>:
+</pre><p><span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>S_BACKDOWN</span><span  style='color: red;'>);</span>
+</p><pre>        break;
+    case <span  style='color: green;'>F_FIGHT</span>:
+</pre><p><span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>F_BEAT</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>F_BEATEN</span><span  style='color: red;'>);</span>
+</p><pre>        break;
+    case <span  style='color: green;'>F_ESCAPE1</span>:
+</pre><p><span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>F_ESCAPE2</span><span  style='color: red;'>);</span>
+</p><pre>        break;
+    case <span  style='color: green;'>F_BEAT</span>:
+</pre><p><span  style='color: red;'>        </span><span  style='color: green;'>setBehaviourFinished(iBehaviour);</span>
+</p><pre>        break;
+    case <span  style='color: green;'>F_BEATEN</span>:
+</pre><p><span  style='color: red;'>        </span><span  style='color: green;'>setBehaviourFinished(iBehaviour);</span>
+</p><pre>        break;
+    case <span  style='color: green;'>F_ESCAPE2</span>:
+</pre><p><span  style='color: red;'>        </span><span  style='color: green;'>setBehaviourFinished(iBehaviour);</span>
+</p><pre>        break;
+
+    case <span  style='color: green;'>S_BACKDOWN</span>:
+</pre><p><span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>S_CALLFRIEND</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>F_ESCAPE1</span><span  style='color: red;'>);</span>
+<span  style='color: red;'>        addCue(iBehaviour, </span><span  style='color: green;'>F_FIGHT</span><span  style='color: red;'>);</span>
+</p><pre>        break;
+    case <span  style='color: green;'>S_INSTIGATE</span>:
+        break;
+    case <span  style='color: green;'>S_CALLFRIEND</span>:
+        break;
+    }
+</pre><p>}
+</p>
+<p class='vspace'>void cleanup_<span  style='color: green;'>Fight</span>(int iBehaviour)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: green;'>Fight</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: green;'>object oInstigator</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(<span  style='color: green;'>oFight</span>, <span  style='color: green;'>"oInstigator"</span>);
+    <span  style='color: green;'>object oVictim</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(<span  style='color: green;'>oFight</span>, <span  style='color: green;'>"oVictim"</span>);
+    int    iInterrupt = <span class='wikiword'>GetLocalInt</span>(o<span  style='color: green;'>Fight</span>, "iInterrupt");
+
+    // If we paused behaviours, we'll segue back into them.
+    if (iInterrupt == INTERRUPT_PAUSE)
+    {
+        int iPrevious;
+
+        iPrevious = b_GetPausedBehaviour(<span  style='color: green;'>oInstigator</span>);
+
+        if (iPrevious)
+        {
+            setSegueToBehaviour(iPrevious, TRUE);
+        }
+
+        iPrevious = b_GetPausedBehaviour(oVictim);
+
+        if (iPrevious)
+        {
+            setSegueToBehaviour(iPrevious, TRUE);
+        }
+    }
+
+    b_Checkin(<span  style='color: green;'>oInstigator</span>);
+    b_Checkin(<span  style='color: green;'>oVictim</span>);
+    destroyBehaviourObject(iBehaviour);
+</pre><p>}
+</p>
+<p class='vspace'>void timeout_<span  style='color: green;'>Fight</span>(int iBehaviour)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: green;'>Fight</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: green;'>object oInstigator</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(<span  style='color: green;'>oFight</span>, <span  style='color: green;'>"oInstigator"</span>);
+    <span  style='color: green;'>object oVictim</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(<span  style='color: green;'>oFight</span>, <span  style='color: green;'>"oVictim"</span>);
+
+    <span class='wikiword'>SayLineWithAction</span>(<span class='wikiword'>VerbData</span>(0, iBehaviour, oInstigator), "Psh... whatever.  Bigger fish to fry...", ANIMATION_FIREFORGET_TAUNT);
+    <span class='wikiword'>SayLine</span>(<span class='wikiword'>VerbData</span>(0, iBehaviour, oVictim), "G-Glad that's over with...");
+
+    setBehaviourFinished(iBehaviour);
+</pre><p>}
+</p>
+<p class='vspace'>void segue_<span  style='color: green;'>Fight</span>(int iBehaviour)
+{
+</p><pre>    // Get the actors and other variables from the behaviour object.
+    object o<span  style='color: green;'>Fight</span> = getBehaviourObject(iBehaviour);
+    <span  style='color: green;'>object oInstigator</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(<span  style='color: green;'>oFight</span>, <span  style='color: green;'>"oInstigator"</span>);
+    <span  style='color: green;'>object oVictim</span> = <span class='wikiword'>GetLocal</span><span  style='color: green;'>Object</span>(<span  style='color: green;'>oFight</span>, <span  style='color: green;'>"oVictim"</span>);
+
+    if (<span class='wikiword'>GetIsDead</span>(oInstigator))
+    {
+        <span class='wikiword'>SayLineWithAction</span>(<span class='wikiword'>VerbData</span>(0, iBehaviour, oVictim), "Oh god... what happened!?", ANIMATION_LOOPING_TALK_PLEADING, 1.0, 2.0);
+        setBehaviourFinished(iBehaviour);
+    }
+    else if (<span class='wikiword'>GetIsDead</span>(oVictim))
+    {
+        <span class='wikiword'>SayLineWithAction</span>(<span class='wikiword'>VerbData</span>(0, iBehaviour, oInstigator), "Hehehe... fool got what they deserved.", ANIMATION_LOOPING_TALK_LAUGHING, 1.0, 2.0);
+        setBehaviourFinished(iBehaviour);
+    }
+    else
+    {
+        <span class='wikiword'>FaceAndSayLine</span>(<span class='wikiword'>VerbData</span>(0, iBehaviour, oInstigator, oVictim), "Don't think you'll get away that easily...");
+        <span class='wikiword'>ChangeToStandardFaction</span>(oInstigator, STANDARD_FACTION_HOSTILE);
+    }
+</pre><p>}
+</p></div>
+</div>
+</body>
+</html>

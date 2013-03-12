@@ -1,0 +1,100 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Development</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  body {
+    background-color:#f7f7f7; 
+    font-family:Arial,Helvetica,sans-serif; font-size:11pt;
+  }
+  textarea, pre, code { font-size:0.9em; }
+  pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier; }
+  pre { line-height:1.2em; }
+  pre code, code code, pre pre { font-size:100%; }
+  h1, h2, h3, h4, h5, h6 { margin-top:1.0em; margin-bottom:0.6em; }
+  h1, h2, h3, h6 { font-weight:normal; }
+  h4, h5 { font-weight:bold; }
+  h1 code, h2 code, h3 code, h4 code { font-size:1em; }
+  h1 { font-size:1.8em; }
+  h2 { font-size:1.44em; }
+  h3 { font-size:1.22em; }
+  h4 { font-size:1.07em; }
+  h5 { font-size:1.0em; }
+  h6 { font-size:1.0em; }
+  .pagegroup { margin-top:8px; margin-bottom:2px; }
+  .pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+  #wikitext { margin-top:12px; line-height:1.33em; }
+  #wikiedit form { margin:0px; width:100%; }
+  #wikiedit textarea { width:100%; }
+  .wikimessage { margin-top:4px; margin-bottom:4px; font-style:italic; }
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  .frame {
+    border:1px solid #cccccc; padding:4px; background-color:#f9f9f9;
+  }
+  .lfloat { float:left; margin-right:0.5em; }
+  .rfloat { float:right; margin-left:0.5em; }
+  a.varlink { text-decoration:none; }
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<div id='wikititle'><h1 class='pagetitle'>Development</h1></div>
+<div id='wikitext'>
+<p>The Behaviour Tool's source is available, so if you would like to change some portion of the Behaviour Tool, or with to extend it with extra functionality, you should feel free!  This document provides an overview of the code, and hopefully explains some of the design decisions that were made.  If there are any questions, please <a class='urllink' href='mailto:trevor%20at%20bekolay%20dot%20org' rel='nofollow'>contact me</a> and I will do my best to help.
+</p>
+<div class='vspace'></div><h2>Overview</h2>
+<p>The code for the Behaviour Tool is divided into three main sets of classes: one set containing all the GUI elements, one is responsible for file I/O, and one set deals with all the code generation.
+</p>
+<p class='vspace'>The main python file is <code>behaviour_tool.py</code>.  Executing this script will begin the program, if python and wxPython are installed on your machine.  <code>setup.py</code> is used to create a Windows executable file using <a class='urllink' href='http://py2exe.org/' rel='nofollow'>py2exe</a>.
+</p>
+<div class='vspace'></div><h3>GUI Classes</h3>
+<p>All of the GUI elements are defined in these classes.  The GUI is built using wxPython, and is by far the largest and most complicated set of classes.  More detailed information on how the GUI classes are set up can be found in the <a class='wikilink' href='http://www.cs.ualberta.ca/~dthue/pswiki/pmwiki.php?n=BehaviourTool.APIDocumentation'>API Documentation</a>.
+</p>
+<p class='vspace'>The GUI classes are contained in <code>Gui.py</code>.
+</p>
+<p class='vspace'>The GUI module imports all of the other modules in the Behaviour Tool.
+</p>
+<div class='vspace'></div><h3>I/O Routines</h3>
+<p>This tool is not meant to be an in-depth <span class='wikiword'>NWScript</span> editor or script generator, like Scriptease.  As such, tools to extract information from modules or .erf files are not within the scope of this tool.  The I/O routines are simple, and allow the tool to Load and Save behaviour script files and the <code>util_verbs.nss</code> file, to get information about actual verbs.
+</p>
+<p class='vspace'>The I/O routines are contained in <code>Io.py</code>.
+</p>
+<p class='vspace'>The I/O module depends on the Parser module to convert files to objects that can be manipulated by the tool.
+</p>
+<div class='vspace'></div><h3>Parsing Routines</h3>
+<p>Knowing about what verbs are avilable, and being able to edit existing behaviours are important to making the tool easy to use.  As such, the tool has routines to parse the <code>util_verbs.nss</code> file, returning a list of actual verb objects, and properly formatted <code>b_&lt;name of behaviour&gt;.nss</code> files, returning an equivalent behaviour object.
+</p>
+<p class='vspace'>The Parsing routines are contained in <code>Parser.py</code>.
+</p>
+<p class='vspace'>The Parser module depends on the Code Generation module to build appropriate objects.
+</p>
+<div class='vspace'></div><h3>Code Generation Classes</h3>
+<p>Code Generation involves plugging behaviour information into templates.  More information about the code generation classes can be found in the <a class='wikilink' href='http://www.cs.ualberta.ca/~dthue/pswiki/pmwiki.php?n=BehaviourTool.APIDocumentation'>API Documentation</a>.  More information about the templates can be found at the <a class='wikilink' href='code_generation_templates.htm'>Code Generation Templates</a> page.
+</p>
+<p class='vspace'>The Code Generation classes are contained in <code>Codegen.py</code>
+</p>
+<p class='vspace'>The Code Generation module does not depend on any other module.
+</p>
+</div>
+</body>
+</html>

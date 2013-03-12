@@ -1,0 +1,93 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Using Behaviours</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  body {
+    background-color:#f7f7f7; 
+    font-family:Arial,Helvetica,sans-serif; font-size:11pt;
+  }
+  textarea, pre, code { font-size:0.9em; }
+  pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier; }
+  pre { line-height:1.2em; }
+  pre code, code code, pre pre { font-size:100%; }
+  h1, h2, h3, h4, h5, h6 { margin-top:1.0em; margin-bottom:0.6em; }
+  h1, h2, h3, h6 { font-weight:normal; }
+  h4, h5 { font-weight:bold; }
+  h1 code, h2 code, h3 code, h4 code { font-size:1em; }
+  h1 { font-size:1.8em; }
+  h2 { font-size:1.44em; }
+  h3 { font-size:1.22em; }
+  h4 { font-size:1.07em; }
+  h5 { font-size:1.0em; }
+  h6 { font-size:1.0em; }
+  .pagegroup { margin-top:8px; margin-bottom:2px; }
+  .pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+  #wikitext { margin-top:12px; line-height:1.33em; }
+  #wikiedit form { margin:0px; width:100%; }
+  #wikiedit textarea { width:100%; }
+  .wikimessage { margin-top:4px; margin-bottom:4px; font-style:italic; }
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  .frame {
+    border:1px solid #cccccc; padding:4px; background-color:#f9f9f9;
+  }
+  .lfloat { float:left; margin-right:0.5em; }
+  .rfloat { float:right; margin-left:0.5em; }
+  a.varlink { text-decoration:none; }
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<div id='wikititle'><h1 class='pagetitle'>Using Behaviours</h1></div>
+<div id='wikitext'>
+<div class='vspace'></div><div  style='float: right; background-color: #ddddff; border: 2px dotted blue;' > 
+<p>Comments are in <span  style='color: green;'>green</span><br />Code is in <span  style='color: purple;'>purple</span><br />Keywords are in <span  style='color: blue;'>blue</span>
+</p></div>
+<p class='vspace'>Using each behaviour involves two lines of code.  First, you have to ensure you include the behaviour's main script file; this is always <span  style='color: purple;'><code>b_&lt;Name of behaviour (lowercase)&gt;</code></span>.  Second, you need to call the start function, <span  style='color: purple;'><code>start_&lt;Name of behaviour(first letter uppercase)&gt;</code></span>.  The parameters to this start function vary for each behaviour.  Each paramater should be explained in a comment before the implementation of that behaviour; these comments can be read by double clicking on the name of the start function to highlight it.
+</p>
+<p class='vspace'>Some parameters are common to all behaviours: <code><span  style='color: blue;'>int</span> <span  style='color: purple;'>iTimeout</span></code> and <code><span  style='color: blue;'>int</span> <span  style='color: purple;'>iInterrupt</span></code>.  These will always be the first two paramters to a behaviour.  <span  style='color: purple;'><code>iTimeout</code></span> controls how long you want this behaviour to run until it decides to give up.  It is an integer, and this integer represents how many times you will run the behaviour's main loop.  By default, the loop runs every <span  style='color: purple;'><code>DEFAULT_HEARTBEAT_DELAY</code></span> seconds; this number can be found in <span  style='color: purple;'><code>util_behaviour</code></span> and is, at the time of writing, 0.5.  So, if you wanted your behaviour to run for 100 seconds then end regardless of the state of the behaviour, you would pass in <span  style='color: purple;'><code>100/DEFAULT_HEARTBEAT_DELAY</code></span> (= 200) as the <span  style='color: purple;'><code>iTimeout</code></span>.  <span  style='color: purple;'><code>iInterrupt</code></span> defines how urgent this behaviour is.  There are three possible values for <span  style='color: purple;'><code>iInterrupt</code></span> : <span  style='color: purple;'><code>NO_INTERRUPT, INTERRUPT_PAUSE, INTERRUPT_STOP</code></span>.  These are defined in <span  style='color: purple;'><code>util_behaviour</code></span>, which is automatically included when you include the behaviour file (<span  style='color: purple;'><code>b_&lt;Name of behaviour (lowercase)&gt;</code></span>).  <span  style='color: purple;'><code>NO_INTERRUPT</code></span> would be a low-priority behaviour; if any of the actors are already engaged in a behaviour, your behaviour will simply not start.  <span  style='color: purple;'><code>INTERRUPT_PAUSE</code></span> is a medium-priority behaviour; if any of the actors are already engaged in a behaviour, they will pause what they're doing, execute your behaviour, then when it is finished, return to the behaviour they were previously executing.  <span  style='color: purple;'><code>INTERRUPT_STOP</code></span> is a high-priority behaviour; if any of the actors are already engaged in a behaviour, they will stop what they're doing and execute your behaviour.  Afterwards they will return to a normal state, having 'forgotten' what they were doing previously.
+</p>
+<p class='vspace'>Let's use an example: a fight behaviour.  I'm creating a module, and in that moduleI want two actors to fight; let's say <span class='wikiword'>ActorA</span> and <span class='wikiword'>ActorB</span>.  I want this fight to happen when the PC enters a trigger, so I will use the behaviour in the <span  style='color: purple;'><code>main()</code></span> method in the <span class='wikiword'>OnEnter</span> script file for that trigger.  First, I add the line <code><span  style='color: blue;'>#include</span> <span  style='color: purple;'>"b_fight"</span></code> to the top of the script file.  At this point, it's a good idea to save the changes so that we can see more information about the contents of <span  style='color: purple;'><code>b_fight</code></span> while editing this script file.  Since I'm not sure what I will need to pass to the start function, I write out <span  style='color: purple;'><code>start_Fight</code></span> then double click it.  Upon double clicking, I see the following in the text area at the bottom of the script editor:
+</p>
+<div class='vspace'></div><div  style='background-color: #eeeeff; border: 2px dotted blue; white-space: pre; font-size: 0.9em; font-family: Lucida Console;' ><span  style='color: green;'>// Initializes the fight behaviour. </span>
+<p><span  style='color: green;'>//  - oInstigator is the actor who is starting the fight; the aggressor.</span>
+<span  style='color: green;'>//  - oVictim is the actor who the instigator wishes to fight with.</span>
+<span  style='color: blue;'>int</span> <span  style='color: purple;'>start_Fight(</span><span  style='color: blue;'>int</span> <span  style='color: purple;'>iTimeout,</span> <span  style='color: blue;'>int</span> <span  style='color: purple;'>iInterrupt,</span> <span  style='color: blue;'>object</span> <span  style='color: purple;'>oInstigator,</span> <span  style='color: blue;'>object</span> <span  style='color: purple;'>oVictim)</span>
+</p></div>
+<p class='vspace'>In this case, I already know what actors I want to use, so I call the function like so: <span  style='color: purple;'><code>start_Fight(200, INTERRUPT_STOP, oActorA, oActorB);</code></span>.  In the end, my <span class='wikiword'>OnEnter</span> file looks something like this:
+</p>
+<div class='vspace'></div><div  style='color: purple; background-color: #eeeeff; border: 2px dotted blue; white-space: pre; font-size: 0.9em; font-family: Lucida Console;' ><span  style='color: blue;'>#include</span> "b_fight" 
+<p>...
+<span  style='color: blue;'>void</span> main()
+{
+</p><pre>    <span  style='color: blue;'>object</span> oActorA = encGetRoleObject(MY_ENCOUNTER, "<span class='wikiword'>ActorA</span>");
+    <span  style='color: blue;'>object</span> oActorB = encGetRoleObject(MY_ENCOUNTER, "<span class='wikiword'>ActorB</span>");
+
+    start_Fight(200, INTERRUPT_STOP, oActorA, oActorB);
+    ...
+</pre><p>}
+...
+</p></div>
+</div>
+</body>
+</html>

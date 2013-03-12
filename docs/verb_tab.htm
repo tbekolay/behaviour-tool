@@ -1,0 +1,112 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Verb Tab</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  body {
+    background-color:#f7f7f7; 
+    font-family:Arial,Helvetica,sans-serif; font-size:11pt;
+  }
+  textarea, pre, code { font-size:0.9em; }
+  pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier; }
+  pre { line-height:1.2em; }
+  pre code, code code, pre pre { font-size:100%; }
+  h1, h2, h3, h4, h5, h6 { margin-top:1.0em; margin-bottom:0.6em; }
+  h1, h2, h3, h6 { font-weight:normal; }
+  h4, h5 { font-weight:bold; }
+  h1 code, h2 code, h3 code, h4 code { font-size:1em; }
+  h1 { font-size:1.8em; }
+  h2 { font-size:1.44em; }
+  h3 { font-size:1.22em; }
+  h4 { font-size:1.07em; }
+  h5 { font-size:1.0em; }
+  h6 { font-size:1.0em; }
+  .pagegroup { margin-top:8px; margin-bottom:2px; }
+  .pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+  #wikitext { margin-top:12px; line-height:1.33em; }
+  #wikiedit form { margin:0px; width:100%; }
+  #wikiedit textarea { width:100%; }
+  .wikimessage { margin-top:4px; margin-bottom:4px; font-style:italic; }
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  .frame {
+    border:1px solid #cccccc; padding:4px; background-color:#f9f9f9;
+  }
+  .lfloat { float:left; margin-right:0.5em; }
+  .rfloat { float:right; margin-left:0.5em; }
+  a.varlink { text-decoration:none; }
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<div id='wikititle'><h1 class='pagetitle'>Verb Tab</h1></div>
+<div id='wikitext'>
+<p class='vspace'>Other than the first behaviour tab, all tabs in the Behaviour Tool interface are verb tabs.  These tabs can be created or deleted at the user's whimsy.  Like the behaviour tab, the verb tabs are split into two sections, one in which you can edit the parts of a verb, and one in which you can view the code that the current verb will produce when the behaviour is saved.
+</p>
+<p><img src='images/verb_tab.png' />
+</p>
+<div class='vspace'></div><h2>Fields</h2>
+<p><a name='top' id='top'></a>
+The following fields are all encompassed in the <strong>Verb panel</strong>; a panel containing widgets to edit the parts that make up a verb.
+</p><ul><li><strong>Contextual name</strong> Text field
+<ul><li>This text field allows the author to change the name of the verb.  As the name suggests, this name should fit the context of the verb, not necessarily the function of it.  Though in a verb you may want one actor to shout at another, the contextual name should reflect what or why they are shouting; for example, shouting "Hey, punk!" might have a contextual name of "instigate."  Spaces are not allowed in the contextual name because it is used in variable names; any spaces will be converted to underscores.
+</li><li>The change in contextual name happens when the focus leaves the text field.  Once the name changes, so does the text on the verb tab and the constant name text field.
+</li></ul></li><li><strong>Constant name</strong> Text field
+<ul><li>This readonly text field displays the name of the constant associated with the verb.  The constant name is automatically generated whenever you change the behaviour name, contextual name, or follower/supporter value.  The constant name is always in the form &lt;F (follower) or S (supporter)&gt;_&lt;First 2 letters of the behaviour name&gt;_&lt;contextual name in uppercase&gt;; e.g., F_FI_INSTIGATE (Follower verb 'instigate' in the Fight behaviour).
+</li></ul></li><li><strong>Follower / Supporter</strong> Radio buttons
+<ul><li>A verb can be either a follower or a supporter.  Supporter verbs are those that can run along with other verbs.  Any number of supporter verbs can be running simultaneously.  Follower verbs, on the other hand, follow another verb only after that verb has finished execution.  Further, only one follower verb can be executed at once; so, if there are two follower verbs in the cues array, once one meets its preconditions, both follower verbs will be removed from the cues array.  By setting up follower verbs with preconditions, one can set up branches in the flow of a behaviour.
+</li><li>These radio buttons allow the author to define if a verb is a follower or a supporter.  Upon changing the value of the radio buttons, the constant name will change to reflect the new value.
+</li></ul></li><li><strong>Preconditions</strong> Section
+<ul><li>Preconditions are logic statements that must be fulfilled before the current verb will be executed.  They are useful when you need to control the scenario you are in; for example, for two people to converse normally, you would expect they would be within a certain distance of each other.  Preconditions can also be used to set up branches in the flow of a verb; for example, you could have an actor attack another actor if they are in different factions, and simply talk if they are in the same faction.
+</li><li>To add a precondition, click the <strong>+</strong> button.  To recover a deleted precondition, press the <strong>Trash</strong> button and select the precondition you wish to recover.
+</li><li><strong>Precondition</strong> Text field
+<ul><li>When you add a precondition, you will see a text field and a <strong>-</strong> button.  Enter valid <span class='wikiword'>NWScript</span> in the text field to add a precondition.  If you wish to remove a precondition, press the <strong>-</strong> button.  Preconditions removed in this manner can be recovered by pressing the <strong>Trash</strong> button as explained above.
+</li></ul></li></ul></li><li><strong>Followers</strong> Section
+<ul><li>Just as it sounds, followers are verbs that will be attempt to be executed after the current verb has finished executing successfully.
+</li><li>Defining the which verbs follow each verb is an important step, as it defines the order in which verbs are executed, and the possible branches each behaviour can take.  If it becomes difficult to manage all the verbs and their followers, return to the behaviour tab to see the graph of verbs and connections.
+</li><li>To add a new follower, click on the <strong>+</strong> button.  To recover a deleted follower, press the <strong>Trash</strong> button and select the follower you wish to recover.
+</li><li><strong>Terminal</strong> Checkbox
+<ul><li>Check this box to denote that this is a terminal verb; that is, a verb that marks the end of the behaviour.  If this verb had followers, they will be hidden; unchecking the terminal box will show the followers again.  However, saving and opening the behaviour again will remove the followers permanently.
+</li></ul></li><li><strong>Follower</strong> Dropdown box
+<ul><li>This dropdown box contains the contextual name of all of the verbs currently in the behaviour; choose the appropriate verb.  It is possible for a verb to follow itself, but this connection will not show up in the graph on the behaviour tab, and this can easily create a behaviour that will never finish, so this is not recommended.
+</li></ul></li></ul></li><li><strong>Actual verb</strong> Section
+<ul><li>Actual verbs are the atomic actions that are available to all behaviour.  Actual verbs are defined in <code>util_verbs.nss</code>; this script can be added to when new actions are required.  Each actual verb is made up of a name, a description, a list of <span class='wikiword'>VerbData</span> arguments and a list of verb arguments.  The arguments are what values should be passed to various functions.  Each verb is passed a <span class='wikiword'>VerbData</span> object, so the <span class='wikiword'>VerbData</span> arguments list keeps track of how many arguments must be passed to the <span class='wikiword'>VerbData</span> object constuctor.  Verbs can also accept other arguments, though not all verbs do.  These arguments can be of any type (object, string, etc).
+</li><li>The actual verb section encompasses all the options related to the actual verb that the verb object encompasses.
+</li><li><strong>Actual verb</strong> Combo box
+<ul><li>The name of the actual verb.  If the path to the <code>util_verbs.nss</code> file has been defined in the <a class='wikilink' href='http://www.cs.ualberta.ca/~dthue/pswiki/pmwiki.php?n=BehaviourTool.MainMenu'>Options</a>, then this combo box will contain the names of all of the actual verbs defined in <code>util_verbs.nss</code>.  If not, one can press the <strong>Open</strong> button to load the actual verbs from <code>util_verbs.nss</code>.
+</li><li>Selecting an actual verb from this dropdown list will create a number of widgets that allow the author to define the arguments to pass to the actual verb.
+</li></ul></li><li><strong>Description</strong> Text
+<ul><li>The description of the actual verb.  This normally tells the author what should go in the ambiguous arguments.
+</li></ul></li><li><strong><span class='wikiword'>VerbData</span> Arguments</strong> Combo box
+<ul><li>Each <span class='wikiword'>VerbData</span> Argument has a combo box so that the author can easily select any object that they have already defined in the behaviour; this includes actors and other variable objects.  Alternatively, one can type anything they choose into the combo box; one could use a <code><span class='wikiword'>GetObjectByTag</span></code> command, for example.
+</li></ul></li><li><strong>Verb Arguments</strong> Combo box
+<ul><li>Verb arguments have a combo box similar to the <span class='wikiword'>VerbData</span> arguments, except that they may have a different type than "object".  Regardless of type, all of the variables of that type the Behaviour Tool knows about will be selectable in the combo box.
+</li></ul></li></ul></li></ul><p class='vspace'><a name='bottom' id='bottom'></a>
+The following fields are encompassed in the <strong>Verb code preview panel</strong>; a panel containing widgets to view the code that the current verb will produce when the behaviour is saved.
+</p><ul><li><strong>Control Preview</strong> Styled text control
+<ul><li>This readonly text control allows the author to see the code that the verb will produce in the <code>control</code> function.  It supports syntax highlighting and code folding by clicking on the + and - boxes in the margin.
+</li></ul></li><li><strong>Checkcues Preview</strong> Styled text control
+<ul><li>This readonly text control allows the author to see the code that the verb will produce in the <code>checkcue</code> function.  It supports syntax highlighting and code folding by clicking on the + and - boxes in the margin.
+</li></ul></li></ul>
+</div>
+</body>
+</html>

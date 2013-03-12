@@ -1,0 +1,95 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Behaviour Tab</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  body {
+    background-color:#f7f7f7; 
+    font-family:Arial,Helvetica,sans-serif; font-size:11pt;
+  }
+  textarea, pre, code { font-size:0.9em; }
+  pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier; }
+  pre { line-height:1.2em; }
+  pre code, code code, pre pre { font-size:100%; }
+  h1, h2, h3, h4, h5, h6 { margin-top:1.0em; margin-bottom:0.6em; }
+  h1, h2, h3, h6 { font-weight:normal; }
+  h4, h5 { font-weight:bold; }
+  h1 code, h2 code, h3 code, h4 code { font-size:1em; }
+  h1 { font-size:1.8em; }
+  h2 { font-size:1.44em; }
+  h3 { font-size:1.22em; }
+  h4 { font-size:1.07em; }
+  h5 { font-size:1.0em; }
+  h6 { font-size:1.0em; }
+  .pagegroup { margin-top:8px; margin-bottom:2px; }
+  .pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+  #wikitext { margin-top:12px; line-height:1.33em; }
+  #wikiedit form { margin:0px; width:100%; }
+  #wikiedit textarea { width:100%; }
+  .wikimessage { margin-top:4px; margin-bottom:4px; font-style:italic; }
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  .frame {
+    border:1px solid #cccccc; padding:4px; background-color:#f9f9f9;
+  }
+  .lfloat { float:left; margin-right:0.5em; }
+  .rfloat { float:right; margin-left:0.5em; }
+  a.varlink { text-decoration:none; }
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<div id='wikititle'><h1 class='pagetitle'>Behaviour Tab</h1></div>
+<div id='wikitext'>
+<p class='vspace'>The behaviour tab is the first tab in the Behaviour Tool interface.  This tab is always present, and cannot be closed or hidden.  The tab is split into two sections, one in which you can edit behaviour wide objects, and one in which you can view the code that the current behaviour will produce when saved.
+</p>
+<p><img src='images/behaviour_tab.png' />
+</p>
+<div class='vspace'></div><h2>Fields</h2>
+<p><a name='top' id='top'></a>
+The following fields are all encompassed in the <strong>Behaviour panel</strong>; a panel containing widgets to edit behaviour wide objects.
+</p><ul><li><strong>Behaviour name</strong> Text field
+<ul><li>This text field allows the author to change the name of the behaviour.  Spaces are not allowed in the behaviour name because the behaviour name is used in variable names and the script name; any spaces will be converted to underscores.
+</li><li>The change in behaviour name happens when the focus leaves the text field.  Once the behaviour changes, so does the text on the behaviour tab and the dropdown box in the Behaviour Code Preview panel.
+</li></ul></li><li><strong>Actors</strong> List control
+<ul><li>This list control allows authors to define the actors that will be used in the behaviour.  To add a new actor, press the <strong>+</strong> button.  To edit the name and description of the actor, click on the text that you would like to change, and type in a new value.  If you wish to delete an actor, click or press the arrow keys until the entire row is selected, then press the <strong>-</strong> button.  If you decide that you deleted an actor prematurely, or accidentally, you can restore a deleted actor by pressing the <strong>Trash</strong> button, then selecting the actor that you wish to restore.
+</li><li>Validation
+<ul><li>Values in the Name field must be of the form o&lt;name, with first letter capitalized&gt; with no spaces; for example, oVictim.  Text that does not fit this form will be changed to fit it automatically.
+</li><li>Values in the Description field must be non-blank.  Attempting to blank out the description field will change the description back to its default value "Description".
+</li></ul></li></ul></li><li><strong>Other Variables</strong> List control
+<ul><li>This list control allows authors to define the other variables that will be used in the behaviour.  Other variables would be things like strings a character might say, or a location that the chracter will move to.  To add a new varaible, press the <strong>+</strong> button.  To edit the type, name and description of the variable, click on the text that you would like to change, and type in a new value.  If you wish to delete a variable, click or press the arrow keys until the entire row is selected, then press the <strong>-</strong> button.  If you decide that you deleted a variable prematurely, or accidentally, you can restore a deleted variable by pressing the <strong>Trash</strong> button, then selecting the variable that you wish to restore.
+</li><li>Validation
+<ul><li>Values in the Type field must be one of "object", "string", "int", or "float".  This list can be added to.  Any value not in the list will not be accepted, and the type will revert to its default, currently "object".
+</li><li>Values in the Name field must be of the form &lt;first letter of the type&gt;&lt;name, with first letter capitalized&gt; with no spaces; for example, sConv.  Text that does not fit this form will be changed to fit it automatically.
+</li><li>Values in the Description field must be non-blank.  Attempting to blank out the description field will change the description back to its default value "Description".
+</li></ul></li></ul></li><li><strong>Verbs</strong> Graph
+<ul><li>As the number of verbs and connections between verbs increases, it can be difficult to visualize the web of verbs and their relationships.  This graph gives the author one way of aiding the visualization, by generating a graph showing all of the verbs and their relationships.  Each verb has an arrow pointing to their followers.  One can move the verbs around to make the most effective graph.  Double clicking on a verb will take you to that verb's tab.  One can add another verb by pressing the <strong>+</strong> button at the top right.  Deleted verbs can be restored by pressing the <strong>Trash</strong> button and selecting the desired verb.
+</li></ul></li></ul><p class='vspace'><a name='bottom' id='bottom'></a>
+The following fields are encompassed in the <strong>Behaviour code preview panel</strong>; a panel containing widgets to view the code that the current behaviour will produce when saved.
+</p><ul><li><strong>Preview Generated Code</strong> Dropdown box
+<ul><li>This dropdown lets you choose which script file you want to preview, the <code>b_&lt;behaviour name&gt;.nss</code> or <code>z_b_&lt;behaviour name&gt;.nss</code> file.  After you add an actor or variable, you can also pretty the refresh button to update the code preview.
+</li></ul></li><li><strong>Generated Code</strong> Styled text control
+<ul><li>This readonly text control allows the author to see the code that the Behaviour Tool has produced.  It supports syntax highlighting and code folding by clicking on the + and - boxes in the margin.
+</li></ul></li></ul>
+</div>
+</body>
+</html>

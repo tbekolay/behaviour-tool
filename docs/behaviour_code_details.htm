@@ -1,0 +1,144 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Behaviour Code Details</title>
+  <meta http-equiv='Content-Style-Type' content='text/css' />
+  <!--HTMLHeader--><style type='text/css'><!--
+  body {
+    background-color:#f7f7f7; 
+    font-family:Arial,Helvetica,sans-serif; font-size:11pt;
+  }
+  textarea, pre, code { font-size:0.9em; }
+  pre, code { font-family:'Lucida Console','Andale Mono','Courier New',Courier; }
+  pre { line-height:1.2em; }
+  pre code, code code, pre pre { font-size:100%; }
+  h1, h2, h3, h4, h5, h6 { margin-top:1.0em; margin-bottom:0.6em; }
+  h1, h2, h3, h6 { font-weight:normal; }
+  h4, h5 { font-weight:bold; }
+  h1 code, h2 code, h3 code, h4 code { font-size:1em; }
+  h1 { font-size:1.8em; }
+  h2 { font-size:1.44em; }
+  h3 { font-size:1.22em; }
+  h4 { font-size:1.07em; }
+  h5 { font-size:1.0em; }
+  h6 { font-size:1.0em; }
+  .pagegroup { margin-top:8px; margin-bottom:2px; }
+  .pagetitle { line-height:1em; margin:0px; font-size:1.6em; font-weight:normal; }
+  #wikitext { margin-top:12px; line-height:1.33em; }
+  #wikiedit form { margin:0px; width:100%; }
+  #wikiedit textarea { width:100%; }
+  .wikimessage { margin-top:4px; margin-bottom:4px; font-style:italic; }
+  ul, ol, pre, dl, p { margin-top:0px; margin-bottom:0px; }
+  code.escaped { white-space: nowrap; }
+  .vspace { margin-top:1.33em; }
+  .indent { margin-left:40px; }
+  .outdent { margin-left:40px; text-indent:-40px; }
+  a.createlinktext { text-decoration:none; border-bottom:1px dotted gray; }
+  a.createlink { text-decoration:none; position:relative; top:-0.5em;
+    font-weight:bold; font-size:smaller; border-bottom:none; }
+  img { border:0px; }
+  .editconflict { color:green; 
+  font-style:italic; margin-top:1.33em; margin-bottom:1.33em; }
+  table.markup { border:2px dotted #ccf; width:90%; }
+  td.markup1, td.markup2 { padding-left:10px; padding-right:10px; }
+  table.vert td.markup1 { border-bottom:1px solid #ccf; }
+  table.horiz td.markup1 { width:23em; border-right:1px solid #ccf; }
+  table.markup caption { text-align:left; }
+  div.faq p, div.faq pre { margin-left:2em; }
+  div.faq p.question { margin:1em 0 0.75em 0; font-weight:bold; }
+  .frame {
+    border:1px solid #cccccc; padding:4px; background-color:#f9f9f9;
+  }
+  .lfloat { float:left; margin-right:0.5em; }
+  .rfloat { float:right; margin-left:0.5em; }
+  a.varlink { text-decoration:none; }
+--></style>  <meta name='robots' content='index,follow' />
+
+</head>
+<body>
+<div id='wikititle'><h1 class='pagetitle'>Behaviour Code Details</h1></div>
+<div id='wikitext'>
+<p class='vspace'>In this case, when we speak of a behaviour, we are referring to the <code>b_&lt;behaviour name&gt;.nss</code> file.  Each behaviour is made up of seven functions which make use of up to six constants.  On initialization, each behaviour creates an invisible behaviour object, also explained below.
+</p>
+<p class='vspace'><a name='constants' id='constants'></a>
+</p><h2>Constants</h2>
+<ul><li>In <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>util_behaviour</span>
+<ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>const float DEFAULT_HEARTBEAT_DELAY = 0.5f;</span>
+<ul><li>The delay between each execution of the behaviour's heartbeat.
+</li></ul></li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>const int NO_INTERRUPT = 0;</span>
+<ul><li>One of the three interrupt types.  If a behaviour is passed <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>NO_INTERRUPT</span>, it will not execute unless all requested actors are free (not executing another behaviour).
+</li></ul></li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>const int INTERRUPT_PAUSE = 1;</span>
+<ul><li>One of the three interrupt types.  If a behaviour is passed <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>INTERRUPT_PAUSE</span>, it will pause the behaviours requested actors are involved in before executing.  After the behaviour has finished, actors that were paused will segue into the behaviours they were executing previously.
+</li></ul></li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>const int INTERRUPT_STOP = 2;</span>
+<ul><li>One of the three interrupt types.  If a behaviour is passed <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>INTERRUPT_STOP</span>, it will stop the behaviours requested actors are involved in.  Stopped behaviours cannot be resumed (though they can be restarted).
+</li></ul></li></ul></li><li>In <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>util_bhvr_object</span>
+<ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>const int TIMED_OUT = 1;</span>
+<ul><li>One of the two return codes that can be signalled by a verb.  Used when a verb times out, which happens usually in cases when the verb is unable to complete (e.g., and actor gets stuck on the way to a destination).
+</li></ul></li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>const int SUCCESS = 2;</span>
+<ul><li>One of the two return codes that can be signalled by a verb.  Used when a verb completes successfully.
+</li></ul></li></ul></li></ul><p class='vspace'><a name='iobject' id='iobject'></a>
+</p><h2>The Invisible Object</h2>
+<p>The invisible object provides a way for the behaviour to encapsulate all the data it needs to execute on one object.  Invisible objects exist in an area known as "purgatory."  When a behaviour has finished execution, its behaviour object is destroyed, ensuring that the behaviour does not leave any traces behind that may interfere with the module, or eat up necessary resources.  The invisible object relies on <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>util_bintarray</span>, a modified version of <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>util_intarray</span> that allows you to create int arrays on arbitrary objects.
+</p>
+<p class='vspace'>In any behaviour, the invisible object stores the following data:
+</p><ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int ID</span> Unique ID to identify a particular instance of a behaviour.  One can get information from the object with this ID, which will be passed down to verbs.  Each behaviour is assigned an ID, and ID's cannot be reused; thus, the theoretical limit for the number of behaviours that can be used in a module is the range of values an integer can take in <span class='wikiword'>NWScript</span>.
+</li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>string sScript</span> Name of the script file that contains certain parts of the behaviour.  This is necessary so verbs can notify behaviours of their completion, and to avoid the use of long switch statements to call functions.
+</li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int current_verb</span> Current follower verb that was just executed.  Set upon completion of the verb.
+</li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int v_finished</span> Return code set by the verb.  Set upon completion of the verb; can be one of <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>TIMED_OUT</span> or <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>SUCCESS</span>.
+</li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>intarray cues</span> A list of the cues to check on each cue checking heartbeat.
+</li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>Other</span> Objects and other variables required by the behaviour; may include the actors involved in the behaviour, the names of conversation files, or other parameters.
+</li></ul><p class='vspace'>The functions to manipulate the behaviour objects are in <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>util_bhvr_object</span>.  Understanding the implementations of these functions is not necessary to create or edit a behaviour, so interested parties are directed there if they wish to know more.
+</p>
+<div class='vspace'></div><h2>Functions</h2>
+<p><a name='start' id='start'></a>
+</p><ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>start_&lt;behaviour name&gt;(iTimeout, iInterrupt, ...)</span> <strong>Initialization function</strong>
+<ul><li>The initialization function creates an invisible object in 'purgatory' (an empty area), checks out passed actors, and stores passed parameters on the invisible object. On success, the function will start the <a href='#checkcues'>cue checking heartbeat</a>.
+</li><li>Arguments
+<ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int iTimeout</span> An int value that defines how many times the behaviour should execute the heartbeat function before signalling a timeout.  The heartbeat runs every <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>DEFAULT_HEARTBEAT_DELAY</span> seconds.
+</li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int iInterrupt</span> The interrupt type for the behaviour.  One of <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>NO_INTERRUPT</span>, <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>INTERRUPT_PAUSE</span> or  <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>INTERRUPT_STOP</span>, as explained <a href='#constants'>above</a>.
+</li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>Actors and other variables</span> Any other variable required by the behaviour needs to be passed in to the <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>start</span> function.
+</li></ul></li><li>Returns the ID of the behaviour object created, or <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>FALSE</span> (0) if the behaviour failed to intialize properly.
+</li></ul></li></ul><p class='vspace'><a name='checkcues' id='checkcues'></a>
+</p><ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>checkcues_&lt;behaviour name&gt;(iTimeout, iBehaviour)</span> <strong>Cue checking heartbeat</strong>
+<ul><li>The cue checking heartbeat iterates over the cues intarray on the invisible object and checks each cue. If a supporter verb's cue returns true, that verb is executed immediately. If a follower verb's cue returns true, that verb is executed immediately, then cues for other follower verbs are cleared from the array. This process continues until the <a href='#control'>post-verb control</a> signals that the behaviour is done.
+</li><li>Arguments
+<ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int iTimeout</span> An int value that defines how many times this function should run before signalling a timeout.  This number is passed by the <a href='#start'>initialization function</a>.
+</li><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int iBehaviour</span> The unique ID of the invisible object associated with the current behaviour.
+</li></ul></li><li>Returns void.
+</li></ul></li></ul><p class='vspace'><a name='z_b_main' id='z_b_main'></a>
+</p><ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>main()</span> in <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>z_b_&lt;behaviour name&gt;.nss</span> <strong>Entry to post-verb control</strong>
+<ul><li>This function exists in a separate script file so that verbs can call this function with <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'><span class='wikiword'>ExecuteScript</span></span> instead of needing a switch/case statement with length proportional to the number of behaviours in a module.  Its function is simply to call the <a href='#control'>post-verb control</a> or <a href='#timeout'>time out</a> function depending on the return code of the verb.  The name of this script file is stored on the <a href='#iobject'>invisible object</a> as <span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>string sScript</span>.
+</li><li>No arguments
+</li><li>Returns void.
+</li></ul></li></ul><p class='vspace'><a name='control' id='control'></a>
+</p><ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>control_&lt;behaviour name&gt;(int iBehaviour)</span> <strong>Post-verb control</strong>
+<ul><li>Connects verbs together.  When a verb finishes its execution, it will set some int's in the invisible object, then execute the <a href='#z_b_main'>script</a> in that object.  If the verb ended successfully, the post-verb control function notes what verb was running (set before ending the verb) and adds the necessary cues to the cue array in the invisible object.
+</li><li>Arguments
+<ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int iBehaviour</span> The unique ID of the invisible object associated with the current behaviour.
+</li></ul></li><li>Returns void.
+</li></ul></li></ul><p class='vspace'><a name='cleanup' id='cleanup'></a>
+</p><ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>cleanup_&lt;behaviour name&gt;(int iBehaviour)</span> <strong>Cleanup function</strong>
+<ul><li>The cleanup function mirrors the initialization function, undoing what it set up.  After a behaviour has completed -- whether it be finished because it timed out, completed successfully, or was stopped by an interrupting behaviour -- the cleanup function will segue into any behaviours it paused, check actors in, and destroy the behaviour object.  In the cleanup function, an author should undo anything that they choose to add to the initialization function.
+</li><li>Arguments
+<ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int iBehaviour</span> The unique ID of the invisible object associated with the current behaviour.
+</li></ul></li><li>Returns void.
+</li></ul></li></ul><p class='vspace'><a name='timeout' id='timeout'></a>
+</p><ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>timeout_&lt;behaviour name&gt;(int iBehaviour)</span> <strong>Timeout function</strong>
+<ul><li>The timeout function allows authors a chance to end a behaviour gracefully if it has failed and caused a timeout, or if they just didn't allow enough time for the behaviour to run its course.  The only requirement of the timeout function is that it sets the behaviour finished; from there, an author can choose to run any script they want, and have access to all the actors and variables that are part of the behaviour.  The author can also choose to do nothing, or simply print a debug message.
+</li><li>Arguments
+<ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int iBehaviour</span> The unique ID of the invisible object associated with the current behaviour.
+</li></ul></li><li>Returns void.
+</li></ul></li></ul><p class='vspace'><a name='segue' id='segue'></a>
+</p><ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>segue_&lt;behaviour name&gt;(int iBehaviour)</span> <strong>Segue back to a behaviour</strong>
+<ul><li>This function is called when an interrupted behaviour is returned to, and is similar to the <a href='#timeout'>timeout function</a>.  It is intended to provide a smooth transition back to the behaviour, hence the name of the function.  Like the timeout function, the author has free reign over what goes in this function, and has access to all the actors and variables that are part of the behaviour.
+</li><li>Arguments
+<ul><li><span  style='color: blue; font-size: 0.95em; font-family: Lucida Console;'>int iBehaviour</span> The unique ID of the invisible object associated with the current behaviour.
+</li></ul></li><li>Returns void.
+</li></ul></li></ul><div class='vspace'></div><h2>Notes</h2>
+<p>There are a number of advantages to embedding these control mechanisms in the behaviour as opposed to a centralized manager to control behaviours and verbs.  It allows us to maintain a generic verb library that doesn't need to know anything about the behaviour that called it except its ID.  Events can easily call behaviours as necessary, and there is no restriction on how many behaviours/verbs can be running at once.  Yet it is managed enough that things are unlikely to get out of hand: each behaviour requires a timeout, so it will not run forever, and actors can only participate in one behaviour at a time (though one actor could pause any number of behaviours and return to the them in FIFO order).
+</p>
+</div>
+</body>
+</html>
